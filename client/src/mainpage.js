@@ -32,7 +32,7 @@ const rightBtn = document.querySelector("#right");
 leftBtn.addEventListener("click", leftButtonClicked);
 rightBtn.addEventListener("click", rightButtonClicked);
 
-fetch('http://localhost:3000/helloworld')
+/*fetch('http://localhost:3000/helloworld')
     .then((response) => {
         return response.text();
     })
@@ -41,4 +41,4 @@ fetch('http://localhost:3000/helloworld')
     })
     .catch((response) => {
         console.log("i am very sad :( " + response);
-    });
+    });*/
