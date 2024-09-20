@@ -8,8 +8,6 @@ app.get("/helloworld", (req, res) => res.send("thank heavens, we did it"));
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");
-    console.log("Username: " + req.body.username);
-    console.log("Password: " + req.body.password)
 });
 
 app.post("/signuppost", (req, res) =>
