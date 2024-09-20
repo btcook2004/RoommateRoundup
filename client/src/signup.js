@@ -6,7 +6,7 @@ function signUpButtonClicked()
     password = passwordField.value;
     username = usernameField.value;
     console.log(password);
-    const request1 = new Request("http://localhost:3000/console", {
+    const request1 = new Request("http://localhost:3000/signuppost", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",  // Tell the server you're sending JSON
