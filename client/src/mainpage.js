@@ -31,14 +31,3 @@ const rightBtn = document.querySelector("#right");
 
 leftBtn.addEventListener("click", leftButtonClicked);
 rightBtn.addEventListener("click", rightButtonClicked);
-
-fetch('http://localhost:3000/helloworld')
-    .then((response) => {
-        return response.text();
-    })
-    .then((text) => {
-        console.log(text)
-    })
-    .catch((response) => {
-        console.log("i am very sad :( " + response);
-    });

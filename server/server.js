@@ -4,7 +4,13 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-app.get("/helloworld", (req, res) => res.send("thank heavens, we did it"));
+app.post("/signup", (req, res) =>
+{
+    console.log("Received name: " + req.body.name)
+    console.log("Received email: " + req.body.email)
+    console.log("Received password: " + req.body.password)
+    res.send("Successfully received login details")
+});
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");
