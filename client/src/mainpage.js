@@ -9,7 +9,7 @@ function leftButtonClicked()
             text: "Left was clicked"
         }),
     });
-    fetch(request1)
+    fetch(request1).then(response => response.text()).then(text => console.log(text))
 }
 
 function rightButtonClicked()
@@ -23,7 +23,7 @@ function rightButtonClicked()
             text: "Right was clicked"
         }),
     });
-    fetch(request1)
+    fetch(request1).then(response => response.text()).then(text => console.log(text))
 }
 
 const leftBtn = document.querySelector("#left");
