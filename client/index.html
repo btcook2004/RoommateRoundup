@@ -5,20 +5,20 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mainpage</title>
-    <link rel="stylesheet" href="src/styles.css">
+    <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
-    <div id="big-container">
-      <div>
-        <button id="left">Left Swipe</button>
+    <nav>
+      <a href="src/messagepage.html" class="nav-item">Messages</a>
+      <a href="src/signup.html" class="nav-item">Sign-Up</a>
+    </nav>
+    <div class="column-container">
+      <h3 class="heading">This is a phenomenal indexpage</h3>
+      <div class="swipe-div">
+          <button id="left">Left Swipe</button>
+          <h1>Brandon Specht</h1>
+          <button id="right">Right Swipe</button>
       </div>
-      <div>
-        <h1>Brandon Specht</h1>
-      </div>
-      <div>
-        <button id="right">Right Swipe</button>
-      </div>
-      <a href="src/messagepage.html">Messages</a>
     </div>
     <script src="src/mainpage.js"></script>
   </body>
