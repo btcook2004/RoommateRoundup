@@ -1,11 +1,19 @@
 const mysql = require('mysql2');
+const fs = require('fs');
+
+let passwordarr = []
+
+fs.readFile('database.config', (err, data) =>
+{
+    passwordarr = data.toString().split("\n");
+})
 
 const conn = mysql.createConnection({
-    host: 'database-1.cpmic0gmoeys.us-east-2.rds.amazonaws.com',
-    user: '***REMOVED***',
-    password: 'mjbbl1975', //it is either this or databasepassword!
-    database: 'database-1',
-    port: ***REMOVED*** //pirt
+    host: passwordarr[0],
+    user: passwordarr[1],
+    password: passwordarr[2],
+    database: passwordarr[3],
+    port: Number(passwordarr[4])
 });
 
 conn.connect((err) => {
