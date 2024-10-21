@@ -12,7 +12,13 @@ function signUpPressed()
         body: JSON.stringify({name: nameStr, email: emailStr, password: passwordStr}),
     });
     // NOTE: Need to better understand then() chaining
-    fetch(request).then(response => response.text()).then(text => console.log(text))
+    //fetch(request).then(response => response.text()).then(text => console.log(text))
+
+    fetch(request)
+        .then(response => response.text())
+        .then(text => console.log(text))
+        .then(localStorage.setItem("username", nameStr))
+        .then(() => window.location.href = "http://localhost:5173/")
 }
 const signUpButton = document.getElementById("sign-up")
 signUpButton.addEventListener("click", signUpPressed)

@@ -1,3 +1,6 @@
+const username = localStorage.getItem("username");
+document.getElementById("username").textContent = username;
+
 function leftButtonClicked()
 {
     const request1 = new Request("http://localhost:3000/console", {
