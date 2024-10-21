@@ -1,8 +1,8 @@
 function signUpPressed()
 {
-    const nameStr = document.getElementById("name").value
-    const emailStr = document.getElementById("email").value
-    const passwordStr = document.getElementById("password").value
+    const nameStr = document.getElementById("name").value;
+    const emailStr = document.getElementById("email").value;
+    const passwordStr = document.getElementById("password").value;
     const request = new Request("http://localhost:3000/signup",
     {
         method: "POST",
