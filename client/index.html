@@ -8,6 +8,11 @@
     <link rel="stylesheet" href="src/index.css">
   </head>
   <body>
+    <h1>Welcome, <span id="username"></span>!</h1>
+    <script>
+      const username = localStorage.getItem("username")
+      document.getElementById("username").textContent = username
+    </script>
     <nav>
       <a href="src/messagepage.html" class="nav-item">Messages</a>
       <a href="src/signup.html" class="nav-item">Sign-Up</a>
