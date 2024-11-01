@@ -2,14 +2,16 @@ import NavBar from "./NavBar.jsx";
 
 function IndexPage()
 {
-  return (
-    <div>
-      <NavBar />
+    return (
       <div>
-        <h1>Index</h1>
+
+        <NavBar />
+        <div>          
+          <h1>IndexPage</h1>
+        </div>
+
       </div>
-    </div>
-  );
+    );
 }
 
-export default IndexPage
+export default IndexPage;
