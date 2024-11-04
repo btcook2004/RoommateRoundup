@@ -1,4 +1,3 @@
-import NavBar from "./NavBar.jsx";
 
 function ListItem(props)
 {
@@ -11,7 +10,6 @@ function MessagePage()
     let animals = ['Dog', 'Lemur', 'Wombat'];
     return (
         <div>
-            <NavBar />
             <div>
                 <h1>Messages</h1>
             </div>
