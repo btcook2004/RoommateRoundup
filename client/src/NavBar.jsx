@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 
 function NavBar()
 {
@@ -5,7 +7,10 @@ function NavBar()
         <nav>
             <ul className="navBar">
                 <li>
-                    <a href="../messagepage.html">Message Page</a>
+                    <Link to="/">Home Page</Link>
+                </li>
+                <li>
+                    <Link to="/messagePage">Message Page</Link>
                 </li>
                 <li>
                     <a href="./signup.html">Sign-up Page</a>
