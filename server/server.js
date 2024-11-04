@@ -1,6 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+const conn = require('../config/database.js')
 app.use(cors());
 app.use(express.json());
 
@@ -10,6 +11,8 @@ app.post("/signup", (req, res) =>
     console.log("Received email: " + req.body.email);
     console.log("Received password: " + req.body.password);
     res.send("Successfully received login details");
+
+    //put post request towards end here
 });
 app.post("/console", (req, res) =>
 {
