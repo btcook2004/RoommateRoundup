@@ -13,7 +13,7 @@ function NavBar()
                     <Link to="/messagePage">Message Page</Link>
                 </li>
                 <li>
-                    <a href="./signup.html">Sign-up Page</a>
+                    <Link to="/signup">Sign-up Page</Link>
                 </li>
             </ul>
         </nav>
