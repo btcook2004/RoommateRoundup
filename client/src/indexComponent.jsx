@@ -7,7 +7,8 @@ import {
 import IndexPage from "./index";
 import MainMessagePage from './pages/mainmessagepage';
 import SignUpPage from './pages/signuppage';
-import "./index.css"
+import SwipePage from './pages/swipePage';
+import "./index.css";
 
 const router = createBrowserRouter([
     {
@@ -15,13 +16,18 @@ const router = createBrowserRouter([
       element: <IndexPage/>
     },
     {
-        path: "/messagePage",
-        element: <MainMessagePage/> 
-      },
-      {
-        path: "/signup",
-        element: <SignUpPage/>
-      },
+      path: "/messagePage",
+      element: <MainMessagePage/> 
+    },
+    {
+      path: "/signup",
+      element: <SignUpPage/>
+    },
+    {
+      path:"/SwipePage",
+      element: <SwipePage/>
+    },
+
   ]);
 createRoot(document.getElementById('root')).render(
     <StrictMode>

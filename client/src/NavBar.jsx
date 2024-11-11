@@ -15,6 +15,9 @@ function NavBar()
                 <li>
                     <Link to="/signup">Sign-up Page</Link>
                 </li>
+                <li>
+                    <Link to="/swipePage">Swipe Page</Link>
+                </li>
             </ul>
         </nav>
     );
