@@ -7,7 +7,7 @@ function SignUpPage() {
     <div>
         <NavBar></NavBar>
         <SignUpInfo/>
-        <div>WOW IT WORKS!!!!!!</div>
+        <div>check server log!</div>
     </div>
     )
 }
