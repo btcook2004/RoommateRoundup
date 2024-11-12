@@ -1,8 +1,9 @@
 const mysql = require('mysql2');
 const fs = require('fs');
+const appRoot = require('app-root-path');
 function createConnection()
 {
-    const data = fs.readFileSync('database.config');
+    const data = fs.readFileSync(appRoot + '/database/database.config');
     const passwordArr = data.toString().split("\n");
     return mysql.createConnection
     (
