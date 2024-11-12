@@ -9,4 +9,6 @@ conn.connect((err) =>
         return;
     }
     console.log('Connected to the MySQL database.');
+    conn.end()
 });
+

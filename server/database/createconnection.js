@@ -10,7 +10,8 @@ function createConnection()
             host: passwordArr[0],
             user: passwordArr[1],
             password: passwordArr[2],
-            port: Number(passwordArr[3])
+            port: Number(passwordArr[3]),
+            database: passwordArr[4]
         }
     );
 }
