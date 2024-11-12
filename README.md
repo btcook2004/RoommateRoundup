@@ -7,4 +7,3 @@
     <li>Message any users who they have a mutual match with</li>
 </ul>
 
-

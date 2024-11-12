@@ -1,5 +1,6 @@
 import {useState} from 'react'
 import NavBar from '../NavBar'
+import "./signup.css"
 
 // not sure why SignUpInfo exists, both components can probably become one
 function SignUpPage() {
@@ -13,7 +14,6 @@ function SignUpPage() {
 
 function SignUpInfo() {
     const [name, setName] = useState('');
-    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     function signUpPressed() {
@@ -22,7 +22,7 @@ function SignUpInfo() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ name, email, password }),
+            body: JSON.stringify({ name, password }),
         });
 
         fetch(request)
@@ -37,7 +37,7 @@ function SignUpInfo() {
 
     return (
         <div style={{ textAlign: 'center' }}>
-            <h1>Sign Up for RoommateRoundup</h1>
+            <h1>Sign Up</h1>
             <div>
                 <label htmlFor="name">Name:</label>
                 <input
@@ -48,17 +48,6 @@ function SignUpInfo() {
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
-
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                />
-
                 <label htmlFor="password">Password:</label>
                 <input
                     type="password"

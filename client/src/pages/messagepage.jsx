@@ -1,4 +1,3 @@
-
 function ListItem(props)
 {
     // props: {animal: "Dog",
