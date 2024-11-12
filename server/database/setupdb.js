@@ -16,22 +16,13 @@ conn.connect((err) =>
         {
             console.error("Query error:", queryErr);
         }
-        else
-        {
-            console.log("Query results:", queryResults);
-        }
     });
-    conn.query("INSERT INTO LOGIN VALUES('John', 'Password');", (err, results) =>
-    {
-        if (err)
-        {
-            console.error("error: " + err);
-        }
-        else
-        {
-            console.log("results: " + results);
-        }
-    });
+    conn.query("DROP TABLE IF EXISTS MATCHES;")
+    conn.query("CREATE TABLE MATCHES(match_id CHAR(36), username INT, matched_username INT, PRIMARY KEY(match_id));")
+    conn.query("DROP TABLE IF EXISTS MESSAGES;")
+    conn.query("CREATE TABLE MESSAGES(message_id CHAR(36), match_id CHAR(36), message_content VARCHAR(512), sender_id INT, date DATE, PRIMARY KEY(message_id));")
+    conn.query("DROP TABLE IF EXISTS PROFILE");
+    conn.query("CREATE TABLE PROFILE(username INT, picture_path VARCHAR(256), answers VARCHAR(256), display_name VARCHAR(256), PRIMARY KEY(username))");
     conn.end();
 });
 
