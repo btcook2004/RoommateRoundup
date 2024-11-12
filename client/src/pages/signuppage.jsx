@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import NavBar from '../NavBar'
-import "./signup.css"
+import "../styles.css"
 
 // not sure why SignUpInfo exists, both components can probably become one
 function SignUpPage() {
