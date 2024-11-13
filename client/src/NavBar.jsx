@@ -6,7 +6,9 @@ function NavBar()
 {
     return (
         <nav className={"navBarContainer"}>
+            <a href="/dashboard">
             <img src={logo} alt={"a great logo"} className={"logo"}/>
+            </a>
             <ul className="navBar">
                 <li>
                     <Link to="/">Home Page</Link>
