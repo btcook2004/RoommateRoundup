@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import "./styles.css"
 import logo from "/logo.svg"
 
-
 function NavBar()
 {
     return (

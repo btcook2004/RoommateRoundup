@@ -1,4 +1,6 @@
-@import 'reset.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 .navBar li
 {
@@ -87,5 +89,11 @@ button {
 
 .container {
     padding: 16px;
+}
+
+@layer base {
+  :root {
+        --radius:0.5rem;
+    }
 }
 
