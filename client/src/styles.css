@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+.topBarContainer
+{
+    display: flex;
+    align-items: flex-end; 
+}
+.topBar li
+{
+    display:inline;
+    padding: 0 10px;
+    align-items: flex-end;
+}
+.h1
+{
+    text-align: center;
+    margin: 30px 0;
+}
+
+
 .navBar li
 {
     display:inline;
@@ -74,10 +92,10 @@ button {
     background-color: #04AA6D;
     color: white;
     padding: 14px 20px;
-    margin: 8px 0;
+    margin: 8px 8px;
     border: none;
     cursor: pointer;
-    width: 100%;
+    width: 30%;
     opacity: 0.9;
 }
 
