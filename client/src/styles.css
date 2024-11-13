@@ -2,30 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
-.topBarContainer
+.topBarContainer /*formats the navbar for index */
 {
     display: flex;
-    align-items: flex-end; 
+    align-items: center; 
+    justify-content: space-between;
 }
-.topBar li
+.topBar li /*formats the navbar for index*/
 {
     display:inline;
-    padding: 0 10px;
-    align-items: flex-end;
+    padding: 0 20px 0 20px;
 }
-.h1
+h1
 {
+    font-family: "Futura", sans-serif;
+    font-size: 30px;
     text-align: center;
     margin: 30px 0;
 }
-
-
+h2
+{
+    font-family: "Futura", sans-serif;
+}
+label
+{
+    font-family: "Futura", sans-serif;
+}
 .navBar li
 {
     display:inline;
     padding: 0 10px;
 }
-
 svg
 {
     width: 50px;
@@ -41,6 +48,7 @@ svg
 
 a
 {
+    font-family: "Futura", sans-serif;
     color: #04AA6D;
     text-decoration: underline;
 }
@@ -68,6 +76,7 @@ a
 
 input[type=text], input[type=password]
 {
+    
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
@@ -95,8 +104,9 @@ button {
     margin: 8px 8px;
     border: none;
     cursor: pointer;
-    width: 30%;
     opacity: 0.9;
+    border-radius: 8px;
+    font-family: "Futura", sans-serif;
 }
 
 .signupbtn
@@ -104,7 +114,10 @@ button {
     float: left;
     width: 50%;
 }
-
+.indexContainer
+{
+    text-align: center;
+}
 .container {
     padding: 16px;
 }

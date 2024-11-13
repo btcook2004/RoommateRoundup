@@ -14,7 +14,7 @@ function linkToSignIn()
 function IndexPage()
 {
     return (
-      <div>
+      <div className="indexContainer">
         {/* <NavBar /> */}
 
         <nav className="topBarContainer">
@@ -28,12 +28,8 @@ function IndexPage()
               </li>
             </ul>
           </nav>
-
-          {/* <Link to="/signup">Sign Up</Link> */}
-
-          <h1>Placeholder for sign-in link that will redirect to dashboard</h1>
-          <h1>temp link to dashboard to bypass signin/signup:</h1>
-          <Link to="/dashboard">Dashboard</Link>
+          <h1>Match Today!!</h1>
+          <button type="button" onClick={linkToSignUp}>Create Account</button>
 
       </div>
     );
