@@ -12,13 +12,20 @@ function NavBar()
                     <Link to="/">Home Page</Link>
                 </li>
                 <li>
+                    <Link to="/dashboard">Dashboard</Link>
+                </li>
+                <li>
                     <Link to="/messagePage">Message Page</Link>
                 </li>
-                <li>
+                {/* <li>
                     <Link to="/signup">Sign-up Page</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to="/swipePage">Swipe Page</Link>
+                </li>
+
+                <li>
+                    <Link to="/editprofile">EditProfile</Link>
                 </li>
             </ul>
         </nav>

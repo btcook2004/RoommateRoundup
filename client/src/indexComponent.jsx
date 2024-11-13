@@ -8,6 +8,8 @@ import IndexPage from "./index";
 import MainMessagePage from './pages/mainmessagepage';
 import SignUpPage from './pages/signuppage';
 import SwipePage from './pages/swipePage';
+import MainDashboard from './pages/maindashboard';
+import EditProfileMain from './pages/editprofilemain';
 
 const router = createBrowserRouter([
     {
@@ -25,6 +27,15 @@ const router = createBrowserRouter([
     {
       path:"/SwipePage",
       element: <SwipePage/>
+    },
+
+    {
+      path:"/dashboard",
+      element: <MainDashboard/>
+    },
+    {
+      path:"/editprofile",
+      element: <EditProfileMain/>
     },
 
   ]);

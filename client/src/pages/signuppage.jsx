@@ -30,7 +30,7 @@ function SignUpInfo() {
             .then(text => {
                 console.log(text);
                 localStorage.setItem("username", name);
-                window.location.href = "http://localhost:5173/"; // Redirect after signup
+                window.location.href = "http://localhost:5173/dashboard"; // Redirect after signup
             })
             .catch(error => console.error('Error:', error));
     }
