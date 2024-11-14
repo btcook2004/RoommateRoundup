@@ -19,7 +19,7 @@ function IndexPage()
 
         <nav className="topBarContainer">
             <img src={"/logo.svg"} alt={"a great logo"} className={"logo"}/>
-            <h3>oommmate Roundup</h3>
+            <h3>oommate Roundup</h3>
             <ul className="topBar">
               <li>
                 <button type="button" onClick={linkToSignUp}>Sign Up</button>

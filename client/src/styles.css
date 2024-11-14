@@ -6,7 +6,6 @@
 {
     display: flex;
     align-items: center; 
-    /* justify-content: space-between;  */
     padding-left: 1%;
     padding-right: 1%;
 }
@@ -18,13 +17,6 @@
     margin: 0;
     padding: 0;
     margin-left: auto;   
-}
-.topBar li /*formats the navbar for index*/
-{
-    /*justify-content: flex-end;
-    display:inline;
-    padding:  20px 0 20px;*/
-
 }
 h1
 {
@@ -39,7 +31,7 @@ h2
 }
 h3{
     font-size: 1.5em;
-  font-weight: bold;
+    font-weight: bold;
     text-align: left;
     color: #04AA6D;
     font-family: "Futura", sans-serif;
@@ -88,12 +80,25 @@ a
     align-items: center;
     margin: 15px auto 30px;
 }
-
+.dashboard button
+{
+    font-size: 2em;
+}
 .indexDiv
 {
     margin: 30px 15px;
 }
-
+.dashboard
+{
+    display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  min-height: 100vh; /* Ensure full-screen height for vertical centering */
+  padding: 20px;
+  gap: 15px; /* Adds space between each item */
+  text-align: center
+}
 /* sign-up styles below */
 
 input[type=text], input[type=password]
@@ -126,7 +131,6 @@ hr
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }
-
 button {
     background-color: #04AA6D;
     color: white;
