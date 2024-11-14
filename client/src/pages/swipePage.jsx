@@ -17,7 +17,7 @@ function SwipePage() {
 
         <div class="columnsContainer">
             <div class="column image-column">
-                <img src="../public/logo.svg" alt="Description of image"/>
+                <img src="../public/profile.svg" alt="Description of image"/>
             </div>
 
             <div class="column text-column">
