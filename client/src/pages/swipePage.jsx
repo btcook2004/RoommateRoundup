@@ -16,8 +16,11 @@ function SwipePage() {
         <Swipe/>
 
         <div class="columnsContainer">
-            <div class="column image-column">
-                <img src="../public/profile.svg" alt="Description of image"/>
+
+            <div class="image-placeholder">
+                <div class="column image-column">
+                    <img src="../public/profile.svg" alt="Description of image"/>
+                </div>
             </div>
 
             <div class="column text-column">

@@ -26,6 +26,12 @@
     margin-top: 10px;
 }
 
+.image-placeholder{
+    background-color: #b7b7b7;
+    width: 200px;
+    height: 100%;
+    border-radius: 10px;
+}
 
 .columnsContainer
 {
@@ -34,13 +40,14 @@
     gap: 5%;
     justify-content: center;
     margin: 10px 10px;
+    margin-left: 0px;
 }
-.columnsContainer img
+/* .columnsContainer img
 {
     width: 50%;
     height: 75%;
     border-radius: 10%;
-}
+} */
 .topBarContainer /*formats the navbar for index */
 {
     display: flex;
