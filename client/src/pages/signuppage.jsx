@@ -40,6 +40,7 @@ function SignUpInfo() {
             <h1>Sign Up</h1>
             <div>
                 <label htmlFor="name">Name:  </label>
+                <br />
                 <input 
                     type="text"
                     id="name"
@@ -49,7 +50,9 @@ function SignUpInfo() {
                     required
                 />
                 <br />
+                <br />
                 <label htmlFor="password">Password:  </label>
+                <br />
                 <input
                     type="password"
                     id="password"
@@ -58,7 +61,8 @@ function SignUpInfo() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
-            
+                <br />
+                <br />
 
                 <button type="button" onClick={signUpPressed}>
                     Sign Up
