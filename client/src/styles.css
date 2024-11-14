@@ -6,14 +6,25 @@
 {
     display: flex;
     align-items: center; 
-    justify-content: space-between;
+    /* justify-content: space-between;  */
     padding-left: 1%;
     padding-right: 1%;
 }
+.topBar
+{
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;   
+}
 .topBar li /*formats the navbar for index*/
 {
+    /*justify-content: flex-end;
     display:inline;
-    padding:  20px 0 20px;
+    padding:  20px 0 20px;*/
+
 }
 h1
 {
@@ -24,6 +35,13 @@ h1
 }
 h2
 {
+    font-family: "Futura", sans-serif;
+}
+h3{
+    font-size: 1.5em;
+  font-weight: bold;
+    text-align: left;
+    color: #04AA6D;
     font-family: "Futura", sans-serif;
 }
 label
