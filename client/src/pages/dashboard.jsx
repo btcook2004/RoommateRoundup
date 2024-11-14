@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom'
+import SwipePage from './swipePage';
+
+function swipePage() {
+  window.location.href = "/swipepage";
+}
 function Dashboard()
 {
     return (
-      <div>
-        
-        <h1>Dashboard</h1>
-        <h2>Placeholder for start swiping link</h2>
-        <Link to="/swipePage">Swipe Page</Link>
+      <div className = "dashboard">
+        <h1>Welcome USER!!</h1>
+        <button type="button" onClick={swipePage}>Start Swiping</button>
         <h1>Placeholder for messages link</h1>
         <Link to="/messagePage">Message Page</Link>
         <h1>placeholder for matching stats</h1>

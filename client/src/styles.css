@@ -2,18 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
+.noButton, .yesButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.noButton {
+    border: none;
+    border-radius: 5px;
+}
+
+.yesButton {
+    border: none;
+    border-radius: 5px;
+    margin-left: auto; /* This will push the button to the right */
+}
+
+.swipeButtonsContainer
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+.image-placeholder{
+    background-color: #b7b7b7;
+    width: 200px;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.columnsContainer
+{
+    display: flex;
+    flex-wrap: space-between;
+    gap: 5%;
+    justify-content: center;
+    margin: 10px 10px;
+    margin-left: 0px;
+}
+/* .columnsContainer img
+{
+    width: 50%;
+    height: 75%;
+    border-radius: 10%;
+} */
 .topBarContainer /*formats the navbar for index */
 {
     display: flex;
     align-items: center; 
-    justify-content: space-between;
     padding-left: 1%;
     padding-right: 1%;
 }
-.topBar li /*formats the navbar for index*/
+.topBar
 {
-    display:inline;
-    padding:  20px 0 20px;
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    margin-left: auto;   
 }
 h1
 {
@@ -24,6 +73,13 @@ h1
 }
 h2
 {
+    font-family: "Futura", sans-serif;
+}
+h3{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: left;
+    color: #04AA6D;
     font-family: "Futura", sans-serif;
 }
 label
@@ -70,12 +126,25 @@ a
     align-items: center;
     margin: 15px auto 30px;
 }
-
+.dashboard button
+{
+    font-size: 2em;
+}
 .indexDiv
 {
     margin: 30px 15px;
 }
-
+.dashboard
+{
+    display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  min-height: 100vh; /* Ensure full-screen height for vertical centering */
+  padding: 20px;
+  gap: 15px; /* Adds space between each item */
+  text-align: center
+}
 /* sign-up styles below */
 
 input[type=text], input[type=password]
@@ -108,7 +177,6 @@ hr
     border: 1px solid #f1f1f1;
     margin-bottom: 25px;
 }
-
 button {
     background-color: #04AA6D;
     color: white;
