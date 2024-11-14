@@ -2,6 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 
+.noButton, .yesButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.noButton {
+    border: none;
+    border-radius: 5px;
+}
+
+.yesButton {
+    border: none;
+    border-radius: 5px;
+    margin-left: auto; /* This will push the button to the right */
+}
+
+.swipeButtonsContainer
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 10px;
+}
+
+
+.columnsContainer
+{
+    display: flex;
+    flex-wrap: space-between;
+    gap: 5%;
+    justify-content: center;
+    margin: 10px 10px;
+}
+.columnsContainer img
+{
+    width: 50%;
+    height: 75%;
+    border-radius: 10%;
+}
 .topBarContainer /*formats the navbar for index */
 {
     display: flex;

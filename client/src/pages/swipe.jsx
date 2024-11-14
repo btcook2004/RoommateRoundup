@@ -2,9 +2,7 @@ function Swipe()
 {
   return (
     <div>
-      <div>
-        <h1>Swipe</h1>
-      </div>
+        <h1>Start Swiping</h1>
     </div>
   );
 }
