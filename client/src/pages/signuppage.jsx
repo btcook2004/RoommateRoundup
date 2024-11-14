@@ -39,8 +39,8 @@ function SignUpInfo() {
         <div style={{ textAlign: 'center' }}>
             <h1>Sign Up</h1>
             <div>
-                <label htmlFor="name">Name:</label>
-                <input
+                <label htmlFor="name">Name:  </label>
+                <input 
                     type="text"
                     id="name"
                     name="name"
@@ -48,7 +48,8 @@ function SignUpInfo() {
                     onChange={(e) => setName(e.target.value)}
                     required
                 />
-                <label htmlFor="password">Password:</label>
+                <br />
+                <label htmlFor="password">Password:  </label>
                 <input
                     type="password"
                     id="password"
@@ -57,6 +58,7 @@ function SignUpInfo() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+            
 
                 <button type="button" onClick={signUpPressed}>
                     Sign Up
