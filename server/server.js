@@ -15,7 +15,6 @@ app.post("/signup", (req, res) =>
     res.send("Successfully received login details")
 });
 
-
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");
