@@ -8,7 +8,7 @@ function Dashboard()
 {
     return (
       <div className = "dashboard">
-        <h1>Welcome USER!!</h1>
+        <h1>Welcome {localStorage.getItem('username')}</h1>
         <button type="button" onClick={swipePage}>Start Swiping</button>
         <h1>Placeholder for messages link</h1>
         <Link to="/messagePage">Message Page</Link>

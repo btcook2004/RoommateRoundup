@@ -10,10 +10,28 @@ app.post("/signup", (req, res) =>
 {
     const username = req.body.name;
     const password = req.body.password;
-    console.log("Received email: " + req.body.email)
+    console.log("Received email: " + req.body.name)
     runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}');`)
     res.send("Successfully received login details")
 });
+
+app.post("/signin", (req, res) =>
+{
+    const username = req.body.name1;
+    const password = req.body.password1;
+    console.log("Signing in with: " + req.body.name1 + " and " + req.body.password1)
+    runQuery(`SELECT * FROM LOGIN WHERE username='${username}' AND password='${password}';`, (err, result) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send("Internal server error");
+        } else if (result.length > 0) {
+            res.send(true);
+        } else {
+            res.send(false);
+        }
+    });
+})
+
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");
