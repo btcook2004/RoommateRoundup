@@ -3,8 +3,9 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const runQuery = require("./database/database-api");
-
+const { runQuery, getUsers } = require("./database/database-api");
+//const runQuery = require("./database/database-api");
+//const getUsers = require("./database/database-api"); //this is new to get users
 
 app.post("/signup", (req, res) =>
 {
@@ -24,27 +25,44 @@ app.post("/console", (req, res) =>
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));
 
-//fake DATA cause cant connect atm
-let users = [
-    { id: 1, name: "Alice", bio: "Loves hiking", imageUrl: "/images/alice.jpg" },
-    { id: 2, name: "Bob", bio: "Engineer", imageUrl: "/images/bob.jpg" },
-    { id: 3, name: "Charlie", bio: "Photographer", imageUrl: "/images/charlie.jpg" },
-];
+//universal array for users, unsure if i should put this in individual functions
+let users = [];
 
 //get all the users
-app.get("/users", (req, res) => {
-    res.json(users);
+app.get("/users", async (req, res) => { //this is async btw
+
+    try {
+        const query = "SELECT * FROM LOGIN;";
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+                                            //await waits for promise to resolve
+        //map those guys or whatever to the user array
+        users = rows.map(row => ({
+
+            id: row.username, //sends id to (username) to frontend
+            password: row.password, //samesies with password
+        }));
+
+        res.json(users); //users array sent!
+    } catch (error) { //if that whole thing does not work
+
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
 
 //for swiping
 app.post("/swipePage", (req, res) => {
-    const { userId, action } = req.body;
+    const { userId, action } = req.body; //when there is an action on a swipe page
 
     //from the request
     if (!userId || !action || (action !== "left" && action !== "right")) {
-        return res.status(400).send("Invalid request data");
+
+        return res.status(400).send("Invalid request data"); //checks if that is okay
     }
     console.log(`User with ID ${userId} was swiped ${action}.`); //log that
-    users = users.filter((user) => user.id !== userId); //remove user from list OPTIONAL!!!!
+    //add sql stuff to store likes
+
+    //users = users.filter((user) => user.id !== userId); //remove user from list OPTIONAL!!!!
     res.status(200).send(`User with ID ${userId} swiped ${action}.`); //it worked!
 });
