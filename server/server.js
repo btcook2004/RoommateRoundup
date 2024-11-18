@@ -23,3 +23,28 @@ app.post("/console", (req, res) =>
 
 const PORT = 3000;
 app.listen(PORT, () => console.log(`My first Express app - listening on port ${PORT}!`));
+
+//fake DATA cause cant connect atm
+let users = [
+    { id: 1, name: "Alice", bio: "Loves hiking", imageUrl: "/images/alice.jpg" },
+    { id: 2, name: "Bob", bio: "Engineer", imageUrl: "/images/bob.jpg" },
+    { id: 3, name: "Charlie", bio: "Photographer", imageUrl: "/images/charlie.jpg" },
+];
+
+//get all the users
+app.get("/users", (req, res) => {
+    res.json(users);
+});
+
+//for swiping
+app.post("/swipePage", (req, res) => {
+    const { userId, action } = req.body;
+
+    //from the request
+    if (!userId || !action || (action !== "left" && action !== "right")) {
+        return res.status(400).send("Invalid request data");
+    }
+    console.log(`User with ID ${userId} was swiped ${action}.`); //log that
+    users = users.filter((user) => user.id !== userId); //remove user from list OPTIONAL!!!!
+    res.status(200).send(`User with ID ${userId} swiped ${action}.`); //it worked!
+});
