@@ -9,24 +9,8 @@ function SignInPage() {
 
   
   function SignInPressed() {
-    const request = new Request("http://localhost:3000/signin", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ name1, password1 }),
-    });
-
-    fetch(request)
-    .then(response => response.text())
-    .then(text => {
-        console.log(text);
-        
-        localStorage.setItem("username", name);
-        window.location.href = "http://localhost:5173/dashboard"; // Redirect after signup
-    })
-    .catch(error => console.error('Error:', error));
-
+    localStorage.setItem("username", name1);
+    window.location.href = "http://localhost:5173/dashboard";
   }
 
   return(
