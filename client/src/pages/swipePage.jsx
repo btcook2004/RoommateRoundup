@@ -61,9 +61,9 @@ function SwipePage() {
         }
     }
 
-    //get the current user to display
+    // Get the current user to display
     const currentUser = users[currentIndex];
-    
+    //ID IS USED HERE IN INSTEAD OF USERNAME
     
     return(
         <div>
@@ -77,13 +77,13 @@ function SwipePage() {
                             <div className="column image-column">
                                 <img
                                     src={currentUser.imageUrl || "../public/profile.svg"}
-                                    alt={`${currentUser.name}'s profile`}
+                                    alt={`${currentUser.id}'s profile`}
                                 />
                             </div>
                         </div>
 
                         <div className="column text-column">
-                            <h1>{currentUser.name}</h1>
+                            <h1>{currentUser.id}</h1>
                             <textarea
                                 placeholder={currentUser.bio || "No bio available"}
                                 readOnly
