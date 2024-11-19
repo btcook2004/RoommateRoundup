@@ -10,6 +10,7 @@ import SignUpPage from './pages/signuppage';
 import SwipePage from './pages/swipePage';
 import MainDashboard from './pages/maindashboard';
 import EditProfileMain from './pages/editprofilemain';
+import SignInPage from './pages/SignIn';
 
 const router = createBrowserRouter([
     {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
     {
       path:"/editprofile",
       element: <EditProfileMain/>
+    },
+    {
+      path: "/signin",
+      element: <SignInPage/>
     },
 
   ]);

@@ -11,10 +11,11 @@ app.post("/signup", (req, res) =>
 {
     const username = req.body.name;
     const password = req.body.password;
-    console.log("Received email: " + req.body.email)
+    console.log("Received email: " + req.body.name + " and password: " + req.body.password);
     runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}');`)
     res.send("Successfully received login details")
 });
+
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");
