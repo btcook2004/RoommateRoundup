@@ -8,7 +8,7 @@ function SwipePage() {
     const [currentIndex, setCurrentIndex] = useState(0); //track the current user
 
     useEffect(() => {
-        fetch("http://localhost:3000/users") //NEED A USERS ROUTE TO GET THE USERS!!!!!
+        fetch("http://localhost:3000/users") //NEED A USERS ROUTE TO GET THE USERS!!!!!   //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
             .then((response) => response.json())
             .then((data) => {
                 setUsers(data);
@@ -34,7 +34,7 @@ function SwipePage() {
         //post request
         if (currentIndex < users.length) { //if still users to display
             const user = users[currentIndex]; 
-            const request1 = new Request("http://localhost:3000/swipePage", {
+            const request1 = new Request("http://localhost:3000/swipePage", { //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
