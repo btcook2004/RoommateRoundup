@@ -61,7 +61,7 @@ function SwipePage() {
         }
     }
 
-    // Get the current user to display
+    //get the current user to display
     const currentUser = users[currentIndex];
     //ID IS USED HERE IN INSTEAD OF USERNAME
     
