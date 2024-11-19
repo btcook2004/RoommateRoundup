@@ -3,7 +3,7 @@ document.getElementById("username").textContent = username;
 
 function leftButtonClicked()
 {
-    const request1 = new Request("http://localhost:3000/console", {
+    const request1 = new Request("http://localhost:3000/console", { //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -17,7 +17,7 @@ function leftButtonClicked()
 
 function rightButtonClicked()
 {
-    const request1 = new Request("http://localhost:3000/console", {
+    const request1 = new Request("http://localhost:3000/console", { //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
         method: "POST",
         headers: {
             "Content-Type": "application/json",

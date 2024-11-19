@@ -17,7 +17,7 @@ function SignInPage() {
       return;
     }
 
-    const request = new Request("http://localhost:3000/signIn", {
+    const request = new Request("http://localhost:3000/signIn", { //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -37,13 +37,10 @@ function SignInPage() {
         }
         else {
           localStorage.setItem("username", name1);
-          window.location.href = "http://localhost:5173/dashboard";
+          window.location.href = "/dashboard";
           return;
       }
     })
-
-    // localStorage.setItem("username", name1);
-    // window.location.href = "http://localhost:5173/dashboard";
   }
 
   return(

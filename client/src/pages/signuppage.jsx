@@ -17,7 +17,7 @@ function SignUpInfo() {
     const [password, setPassword] = useState('');
 
     function signUpPressed() {
-        const request = new Request("http://localhost:3000/signup", {
+        const request = new Request("http://localhost:3000/signup", {//CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -30,7 +30,7 @@ function SignUpInfo() {
             .then(text => {
                 console.log(text);
                 localStorage.setItem("username", name);
-                window.location.href = "http://localhost:5173/dashboard"; // Redirect after signup
+                window.location.href = "/dashboard"; // Redirect after signup
             })
             .catch(error => console.error('Error:', error));
     }
