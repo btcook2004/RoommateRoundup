@@ -2,6 +2,11 @@ import { Link } from 'react-router-dom'
 import "./styles.css"
 import logo from "/logo.svg"
 
+function logOutPressed() {
+    localStorage.setItem("username", "");
+    window.location.href = "/";
+}
+
 function NavBar()
 {
     return (
@@ -30,6 +35,10 @@ function NavBar()
                     <Link to="/editprofile">EditProfile</Link>
                 </li>
             </ul>
+            
+            <button className="logoutButton" onClick={logOutPressed} /* style={{ marginLeft: 'auto' }} */>
+                Sign Out
+            </button>
         </nav>
     );
 }
