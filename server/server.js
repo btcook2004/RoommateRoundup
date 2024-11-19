@@ -16,6 +16,31 @@ app.post("/signup", (req, res) =>
     res.send("Successfully received login details")
 });
 
+app.post("/signIn", async (req, res) =>
+{
+    const username = req.body.name;
+    const password = req.body.password;
+    console.log("Received email: " + req.body.name + " and password: " + req.body.password);
+    try {
+        const query = `SELECT * FROM LOGIN WHERE username = '${username}' AND password = '${password}';`;
+        console.log("Query: " + query);
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+        //await waits for promise to resolve
+        console.log("HELLO: " + JSON.stringify(rows));
+        if (rows.length > 0) {
+            res.send("Success");
+        } else {
+            res.send("Failure");
+        }
+    }
+    catch (error) {
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+
+});
+
 app.post("/console", (req, res) =>
 {
     res.send("This is where you can see any messages.");

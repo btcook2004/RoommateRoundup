@@ -9,8 +9,41 @@ function SignInPage() {
 
   
   function SignInPressed() {
-    localStorage.setItem("username", name1);
-    window.location.href = "http://localhost:5173/dashboard";
+
+    console.log("Sign In Pressed");
+    console.log("Name: " + name1 + " Password: " + password1);
+    if (name1 === "" || password1 === "") {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const request = new Request("http://localhost:3000/signIn", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: name1,
+        password: password1,
+      }),
+    });
+    fetch(request)
+      .then((response) => response.text())
+      .then((text) => {
+        console.log("Server response:", text);
+        if (text === "Failure") {
+          alert("Incorrect username or password");
+          return;
+        }
+        else {
+          localStorage.setItem("username", name1);
+          window.location.href = "http://localhost:5173/dashboard";
+          return;
+      }
+    })
+
+    // localStorage.setItem("username", name1);
+    // window.location.href = "http://localhost:5173/dashboard";
   }
 
   return(

@@ -23,6 +23,7 @@ async function getUsers(query) { //async = promised based code as if synchronous
         });
     });
 }
+
 //module.exports = runQuery;
 module.exports = { runQuery, getUsers };
 //module.exports = getUsers; //delete this if bad!
