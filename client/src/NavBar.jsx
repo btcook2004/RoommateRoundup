@@ -15,9 +15,9 @@ function NavBar()
             <img src={logo} alt={"a great logo"} className={"logo"}/>
             </a>
             <ul className="navBar">
-                <li>
+                {/* <li>
                     <Link to="/">Home Page</Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to="/dashboard">Dashboard</Link>
                 </li>
