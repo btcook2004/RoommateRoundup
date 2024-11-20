@@ -16,23 +16,44 @@ function SignUpInfo() {
     const [password, setPassword] = useState('');
 
     function signUpPressed() {
-        const request = new Request("http://localhost:3000/signup", {//CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
+
+        const request1 = new Request("http://localhost:3000/checkUsername", {
             method: "POST",
             headers: {
-                "Content-Type": "application/json",
+            "Content-Type": "application/json",
             },
-            body: JSON.stringify({ name, password }),
+            body: JSON.stringify({ name: name }),
         });
 
-        fetch(request)
+        fetch(request1)
             .then(response => response.text())
             .then(text => {
-                console.log(text);
-                localStorage.setItem("username", name);
-                window.location.href = "/dashboard"; // Redirect after signup
+            if (text === "Username already exists") {
+                alert("Username already exists");
+                throw new Error("Username already exists");
+            } else {
+                const request = new Request("http://localhost:3000/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, password }),
+                });
+
+                fetch(request)
+                .then(response => response.text())
+                .then(text => {
+                    console.log(text);
+                    localStorage.setItem("username", name);
+                    window.location.href = "/dashboard"; // Redirect after signup
+                })
+                .catch(error => console.error('Error:', error));
+            }
             })
             .catch(error => console.error('Error:', error));
+
     }
+
 
     return (
         <div style={{ textAlign: 'center' }}>
