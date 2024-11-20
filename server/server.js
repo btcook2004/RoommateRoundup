@@ -102,16 +102,16 @@ app.get("/users", async (req, res) => { //this is async btw
 
 //for swiping
 app.post("/swipePage", (req, res) => {
-    const { userId, action } = req.body; //when there is an action on a swipe page
+    const { swiper, userId, action } = req.body; //when there is an action on a swipe page
 
     //from the request
     if (!userId || !action || (action !== "left" && action !== "right")) {
 
         return res.status(400).send("Invalid request data"); //checks if that is okay
     }
-    console.log(`User with ID ${userId} was swiped ${action}.`); //log that
+    console.log(`User with ID ${userId} was swiped ${action} by ${swiper}.`); //log that
     //add sql stuff to store likes
 
     //users = users.filter((user) => user.id !== userId); //remove user from list OPTIONAL!!!!
-    res.status(200).send(`User with ID ${userId} swiped ${action}.`); //it worked!
+    res.status(200).send(`User with ID ${userId} swiped ${action} by ${swiper}.`); //it worked!
 });

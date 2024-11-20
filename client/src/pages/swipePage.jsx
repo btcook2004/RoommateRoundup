@@ -40,6 +40,7 @@ function SwipePage() {
                     "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
+                    swiper: localStorage.getItem("username"), //get the username of the swiper
                     userId: user.id, //give that id of person swiped
                     action: direction,
                 }),
