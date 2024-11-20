@@ -7,6 +7,29 @@ const { runQuery, getUsers } = require("./database/database-api");
 //const runQuery = require("./database/database-api");
 //const getUsers = require("./database/database-api"); //this is new to get users
 
+
+app.post("/checkUsername", async (req, res) => {
+    const username = req.body.name;
+    console.log("Received email: " + req.body.name);
+    try {
+        const query = `SELECT * FROM LOGIN WHERE username = '${username}';`;
+        console.log("Query: " + query);
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+        //await waits for promise to resolve
+        console.log("HELLO: " + JSON.stringify(rows));
+        if (rows.length > 0) {
+            res.send("Username already exists");
+        } else {
+            res.send("Username is available");
+        }
+    }
+    catch (error) {
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});  
+
 app.post("/signup", (req, res) =>
 {
     const username = req.body.name;
