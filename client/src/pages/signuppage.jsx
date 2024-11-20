@@ -6,7 +6,6 @@ import "../styles.css"
 function SignUpPage() {
     return(
         <div>
-            <NavBar></NavBar>
             <SignUpInfo/>
         </div>
     )
