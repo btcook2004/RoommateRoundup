@@ -46,7 +46,7 @@ function SignInPage() {
   return(
 
     <div>
-      <NavBar></NavBar>
+
       <div style={{ textAlign: 'center' }}>
         <h1>Sign In</h1>
         <div>
