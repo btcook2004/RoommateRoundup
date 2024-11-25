@@ -6,6 +6,18 @@ function logOutPressed() {
     localStorage.setItem("username", "");
     window.location.href = "/";
 }
+function swipePage() {
+    window.location.href = "/swipepage";
+}
+function messagePage() {
+    window.location.href = "/messagePage";
+}
+function dashboard() {
+    window.location.href = "/dashboard";
+}
+function EditProfile() {
+    window.location.href = "/editpage";
+}
 
 function NavBar()
 {
@@ -15,24 +27,22 @@ function NavBar()
             <img src={logo} alt={"a great logo"} className={"logo"}/>
             </a>
             <ul className="navBar">
-                {/* <li>
-                    <Link to="/">Home Page</Link>
-                </li> */}
                 <li>
-                    <Link to="/dashboard">Dashboard</Link>
+                    <button type="button" onClick={dashboard}>Dashboard</button>
+                    {/* <Link to="/dashboard">Dashboard</Link> */}
                 </li>
                 <li>
-                    <Link to="/messagePage">Message Page</Link>
+                    <button type="button" onClick={messagePage}>Message Page</button>
+                    {/* <Link to="/messagePage">Message Page</Link> */}
                 </li>
-                {/* <li>
-                    <Link to="/signup">Sign-up Page</Link>
-                </li> */}
                 <li>
-                    <Link to="/swipePage">Swipe Page</Link>
+                    <button type="button" onClick={swipePage}>Swipe Page</button>
+                    {/* <Link to="/swipePage">Swipe Page</Link> */}
                 </li>
 
                 <li>
-                    <Link to="/editprofile">EditProfile</Link>
+                    <button type="button" onClick={EditProfile}>Edit Profile</button>
+                    {/* <Link to="/editprofile">EditProfile</Link> */}
                 </li>
             </ul>
             
