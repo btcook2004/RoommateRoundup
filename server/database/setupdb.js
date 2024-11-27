@@ -20,9 +20,11 @@ conn.connect((err) =>
     conn.query("DROP TABLE IF EXISTS MATCHES;")
     conn.query("CREATE TABLE MATCHES(match_id CHAR(36), username INT, matched_username INT, PRIMARY KEY(match_id));")
     conn.query("DROP TABLE IF EXISTS MESSAGES;")
-    conn.query("CREATE TABLE MESSAGES(message_id CHAR(36), match_id CHAR(36), message_content VARCHAR(512), sender_id INT, date DATE, PRIMARY KEY(message_id));")
+    conn.query("CREATE TABLE MESSAGES(message_id CHAR(36), match_id CHAR(36), message_content VARCHAR(512), sender_id INT, date DATE, PRIMARY KEY(message_id));");
     conn.query("DROP TABLE IF EXISTS PROFILE");
-    conn.query("CREATE TABLE PROFILE(username INT, picture_path VARCHAR(256), answers VARCHAR(256), display_name VARCHAR(256), PRIMARY KEY(username))");
+    conn.query("CREATE TABLE PROFILE(username INT, picture_path VARCHAR(256), answers VARCHAR(256), display_name VARCHAR(256), PRIMARY KEY(username));");
+    conn.query("DROP TABLE IF EXISTS ANSWERS");
+    conn.query("CREATE TABLE ANSWER(username VARCHAR(256)), question VARCHAR(256), answer VARCHAR(256), PRIMARY KEY(username, question);")
     conn.end();
 });
 
