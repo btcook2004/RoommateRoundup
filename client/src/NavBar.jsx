@@ -6,18 +6,6 @@ function logOutPressed() {
     localStorage.setItem("username", "");
     window.location.href = "/";
 }
-function swipePage() {
-    window.location.href = "/swipepage";
-}
-function messagePage() {
-    window.location.href = "/messagePage";
-}
-function dashboard() {
-    window.location.href = "/dashboard";
-}
-function EditProfile() {
-    window.location.href = "/editpage";
-}
 
 function NavBar()
 {
@@ -33,7 +21,7 @@ function NavBar()
                      href="/dashboard">Dashboard</a></li>
                     <li><a href="/messagePage">Messages</a></li>
                     <li><a href="/swipepage">Swipe Page</a></li>
-                    <li><a href="/editpage">Edit Profile</a></li>
+                    <li><a href="/editprofile">Edit Profile</a></li>
                 </ul>
             </div>
             
