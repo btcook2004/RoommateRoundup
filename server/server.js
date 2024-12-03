@@ -3,11 +3,34 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
-const { runQuery, getUsers } = require("./database/database-api");
+const { runQuery, getUsers, runOtherQuery, generateUniqueId } = require("./database/database-api");
 //const runQuery = require("./database/database-api");
 //const getUsers = require("./database/database-api"); //this is new to get users
+//I THINK THE ISSUE IS WITH MY SESSION COOKIES!!!
 
+const session = require("express-session"); //also added for signing in tho idk
 
+const MemoryStore = require('express-session').MemoryStore;
+
+/*app.use(session({
+    secret: 'ASecretThing',
+    resave: false,
+    saveUninitialized: false,
+    store: new MemoryStore(),
+    cookie: {  secure: false, // Ensure it's set to false if you're not using HTTPS
+        sameSite: 'None', // Allow cookies in cross-origin requests
+        maxAge: 1000 * 60 * 60 * 24 }
+}));
+app.use((req, res, next) => {
+    console.log("Middleware: req.session.user =", req.session.user); // Log session info
+    req.user = req.session.user || null;  // Set req.user to session user
+    console.log("Middleware: req.user =", req.user); // Log req.user
+    next();
+});
+app.use((req, res, next) => {
+    console.log("Session ID:", req.sessionID);
+    next();
+});
 app.post("/checkUsername", async (req, res) => {
     const username = req.body.name;
     console.log("Received email: " + req.body.name);
@@ -28,7 +51,7 @@ app.post("/checkUsername", async (req, res) => {
         console.error("Error retrieving users:", error);
         res.status(500).send("Internal Server Error");
     }
-});  
+});  */
 
 app.post("/signup", (req, res) =>
 {
@@ -39,30 +62,69 @@ app.post("/signup", (req, res) =>
     res.send("Successfully received login details")
 });
 
-app.post("/signIn", async (req, res) =>
-{
-    const username = req.body.name;
+app.post("/signIn", async (req, res) => {
+   /* const username = req.body.name;
     const password = req.body.password;
-    console.log("Received email: " + req.body.name + " and password: " + req.body.password);
+    console.log("Received email: " + username + " and password: " + password);
+
     try {
         const query = `SELECT * FROM LOGIN WHERE username = '${username}' AND password = '${password}';`;
         console.log("Query: " + query);
 
-        const rows = await getUsers(query); //goes to getUsers function in other file
-        //await waits for promise to resolve
-        console.log("HELLO: " + JSON.stringify(rows));
-        if (rows.length > 0) {
-            res.send("Success");
+        const rows = await getUsers(query);
+        console.log("HELLO: " + JSON.stringify(rows));*/
+
+       // if (rows.length > 0) {
+            //const user = { username: username };
+           // req.session.user = user;  // Save user in session
+            
+           // console.log("Session user set:", req.session.user);  // Log to confirm session is set
+
+            // Force session save and then respond
+           /* req.session.save((err) => {
+                if (err) {
+                    console.error("Error saving session:", err);
+                    return res.status(500).send("Internal Server Error");
+                }
+
+                // Ensure session is saved before responding
+                console.log("Session saved:", req.session.user);
+                res.send("Success");
+            });
         } else {
             res.send("Failure");
         }
-    }
-    catch (error) {
+    } catch (error) {
         console.error("Error retrieving users:", error);
         res.status(500).send("Internal Server Error");
-    }
+    } */
+
+
+        const username = req.body.name;
+        const password = req.body.password;
+        console.log("Received email: " + req.body.name + " and password: " + req.body.password);
+        try {
+            const query = `SELECT * FROM LOGIN WHERE username = '${username}' AND password = '${password}';`;
+            console.log("Query: " + query);
+    
+            const rows = await getUsers(query); //goes to getUsers function in other file
+            //await waits for promise to resolve
+            console.log("HELLO: " + JSON.stringify(rows));
+            if (rows.length > 0) {
+                res.send("Success");
+            } else {
+                res.send("Failure");
+            }
+        }
+        catch (error) {
+            console.error("Error retrieving users:", error);
+            res.status(500).send("Internal Server Error");
+        }
+
+
 
 });
+
 
 app.post("/console", (req, res) =>
 {
@@ -101,17 +163,75 @@ app.get("/users", async (req, res) => { //this is async btw
 });
 
 //for swiping
-app.post("/swipePage", (req, res) => {
-    const { swiper, userId, action } = req.body; //when there is an action on a swipe page
+app.post("/swipePage", async (req, res) => {
+    //console.log("Cookies:", req.cookies); //log cookies to see if the session cookie is there
+    //const { userId, action } = req.body;
+    //const swiper = req.user?.username;
+    //console.log("REQ: ", req)
+    const { swiper, userId, action } = req.body;
 
-    //from the request
-    if (!userId || !action || (action !== "left" && action !== "right")) {
+    console.log("SwipePage Endpoint: Request received with data:", { swiper, userId, action });
 
-        return res.status(400).send("Invalid request data"); //checks if that is okay
+    if (!swiper || !userId || (action !== "left" && action !== "right")) {
+        console.error("Invalid request data:", { swiper, userId, action });
+        return res.status(400).send("Invalid request data");
     }
-    console.log(`User with ID ${userId} was swiped ${action} by ${swiper}.`); //log that
-    //add sql stuff to store likes
 
-    //users = users.filter((user) => user.id !== userId); //remove user from list OPTIONAL!!!!
-    res.status(200).send(`User with ID ${userId} swiped ${action} by ${swiper}.`); //it worked!
+    try {
+        console.log("Inserting swipe:", { swiper, userId, action });
+        const insertSwipeQuery = "INSERT INTO SWIPES (first_user, second_user, action) VALUES (?, ?, ?)";
+        await runOtherQuery(insertSwipeQuery, [swiper, userId, action]);
+
+        if (action === "right") {
+            console.log("Checking for mutual right swipe (potential match)...");
+            const matchCheckQuery = `
+                SELECT * FROM SWIPES
+                WHERE first_user = ? AND second_user = ? AND action = 'right';
+            `;
+            const rows = await runOtherQuery(matchCheckQuery, [userId, swiper]);
+            console.log("Match check result:", rows);
+
+            if (rows.length > 0) {
+                console.log("Mutual swipe detected! Inserting match...");
+                const matchQuery = `
+                    INSERT INTO MATCHES (match_id, username, matched_username)
+                    VALUES (?, ?, ?);
+                `;
+                const matchId = generateUniqueId();
+                await runOtherQuery(matchQuery, [matchId, swiper, userId]);
+
+                console.log("Match successfully created!");
+                return res.status(200).send("Match created!");
+            }
+        }
+
+        console.log("Swipe recorded successfully.");
+        res.status(200).send("Swipe recorded!");
+    } catch (error) {
+        console.error("Error processing swipe:", error);
+        res.status(500).send("Internal Server Error");
+    }
 });
+
+
+/*app.get("/matches/:userId", async (req, res) => {
+    const userId = req.params.userId;
+
+    if (!userId) {
+        return res.status(400).send("User ID is required");
+    }
+
+    try {
+        const query = `
+            SELECT match_id, username, matched_username 
+            FROM MATCHES 
+            WHERE username = '${userId}' OR matched_username = '${userId}';
+        `;
+        const matches = await getUsers(query); //i think this may cause issuess
+
+        res.json(matches); // Return the list of matches
+    } catch (error) {
+        console.error("Error retrieving matches:", error);
+        res.status(500).send("Internal Server Error");
+    }
+}); */
