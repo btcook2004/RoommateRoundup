@@ -8,9 +8,9 @@ const { runQuery, getUsers, runOtherQuery, generateUniqueId } = require("./datab
 //const getUsers = require("./database/database-api"); //this is new to get users
 //I THINK THE ISSUE IS WITH MY SESSION COOKIES!!!
 
-const session = require("express-session"); //also added for signing in tho idk
+//const session = require("express-session"); //also added for signing in tho idk
 
-const MemoryStore = require('express-session').MemoryStore;
+//const MemoryStore = require('express-session').MemoryStore;
 
 /*app.use(session({
     secret: 'ASecretThing',
