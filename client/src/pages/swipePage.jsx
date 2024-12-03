@@ -8,10 +8,12 @@ function SwipePage() {
     const [currentIndex, setCurrentIndex] = useState(0); //track the current user
 
     useEffect(() => {
+        const currentUserUsername = localStorage.getItem("username")
         fetch("http://localhost:3000/users") //NEED A USERS ROUTE TO GET THE USERS!!!!!   //CHANGE TO ADDRESS OF SERVER SIDE WHEN DEPLOYED
             .then((response) => response.json())
             .then((data) => {
-                setUsers(data);
+                const filteredUsers = data.filter(user => user.id !== currentUserUsername);
+                setUsers(filteredUsers);
             })
             .catch((error) => console.error("Error fetching users:", error));
     }, []);
