@@ -25,7 +25,11 @@
     justify-content: space-evenly;
     margin-top: 10px;
 }
-
+.edit-button{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+}
 .image-placeholder{
     background-color: #b7b7b7;
     width: 200px;
@@ -54,6 +58,7 @@
     align-items: center; 
     padding-left: 1%;
     padding-right: 1%;
+    background-color: white;
 }
 .topBar
 {
@@ -70,10 +75,13 @@ h1
     font-size: 30px;
     text-align: center;
     margin: 30px 0;
+    color: #1b2430;
 }
 h2
 {
+    color: #1b2430;
     font-family: "Futura", sans-serif;
+    text-align: center;
 }
 h3{
     font-size: 1.5em;
@@ -81,31 +89,57 @@ h3{
     text-align: left;
     color: #04AA6D;
     font-family: "Futura", sans-serif;
+    padding-left: 3px;
+}
+h4{
+    color: #1b2430;
+    font-family: "Futura", sans-serif;
+    text-align: center;
+    font-size: 25px;
 }
 label
 {
+    color: #1b2430;
     font-family: "Futura", sans-serif;
 }
-.navBar li
-{
-    display:inline;
-    padding: 0 10px;
-}
+
 svg
 {
     width: 50px;
     height: 50px;
 }
-
-.navBarContainer
-{
+nav{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 1%;
-    padding-right: 1%;
+    background-color: #1b2430;
+    padding: 20px 80px;
+    box-shadow: 0 5 px 15px rgba(0,0,0,0.06);
 }
+#navbar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+}
+#navbar li 
+{
+    list-style: none;
+    padding: 0 20px;
+    position: relative;
+
+}
+#navbar li a{
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+      font-family: "Futura", sans-serif;
+      transition: 0.3s ease-in-out;
+}
+#navbar li a:hover{
+    color:#04AA6D;
+}
 a
 {
     font-family: "Futura", sans-serif;

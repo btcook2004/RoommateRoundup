@@ -6,18 +6,6 @@ function logOutPressed() {
     localStorage.setItem("username", "");
     window.location.href = "/";
 }
-function swipePage() {
-    window.location.href = "/swipepage";
-}
-function messagePage() {
-    window.location.href = "/messagePage";
-}
-function dashboard() {
-    window.location.href = "/dashboard";
-}
-function EditProfile() {
-    window.location.href = "/editpage";
-}
 
 function NavBar()
 {
@@ -26,27 +14,18 @@ function NavBar()
             <a href="/dashboard">
             <img src={logo} alt={"a great logo"} className={"logo"}/>
             </a>
-            <ul className="navBar">
-                <li>
-                    <button type="button" onClick={dashboard}>Dashboard</button>
-                    {/* <Link to="/dashboard">Dashboard</Link> */}
-                </li>
-                <li>
-                    <button type="button" onClick={messagePage}>Message Page</button>
-                    {/* <Link to="/messagePage">Message Page</Link> */}
-                </li>
-                <li>
-                    <button type="button" onClick={swipePage}>Swipe Page</button>
-                    {/* <Link to="/swipePage">Swipe Page</Link> */}
-                </li>
 
-                <li>
-                    <button type="button" onClick={EditProfile}>Edit Profile</button>
-                    {/* <Link to="/editprofile">EditProfile</Link> */}
-                </li>
-            </ul>
+            <div>
+                <ul id = "navbar">
+                    <li><a className="active"
+                     href="/dashboard">Dashboard</a></li>
+                    <li><a href="/messagePage">Messages</a></li>
+                    <li><a href="/swipepage">Swipe Page</a></li>
+                    <li><a href="/editprofile">Edit Profile</a></li>
+                </ul>
+            </div>
             
-            <button className="logoutButton" onClick={logOutPressed} /* style={{ marginLeft: 'auto' }} */>
+            <button className="logoutButton" onClick={logOutPressed}>
                 Sign Out
             </button>
         </nav>
