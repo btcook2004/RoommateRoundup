@@ -1,10 +1,27 @@
 const connCreator = require("./createconnection");
+const { v4: uuidv4 } = require('uuid');
+
+function generateUniqueId() {
+    return uuidv4();
+}
 
 function runQuery(query)
 {
     const conn = connCreator();
     conn.query(query);
     conn.end();
+}
+function runOtherQuery(query, params = []) {
+    const conn = connCreator();
+    return new Promise((resolve, reject) => {
+        conn.query(query, params, (err, results) => {
+            conn.end(); // Close connection
+            if (err) {
+                return reject(err);
+            }
+            resolve(results);
+        });
+    });
 }
 
 async function getUsers(query) { //async = promised based code as if synchronous
@@ -24,6 +41,7 @@ async function getUsers(query) { //async = promised based code as if synchronous
     });
 }
 
+
 //module.exports = runQuery;
-module.exports = { runQuery, getUsers };
+module.exports = { runQuery, getUsers, runOtherQuery, generateUniqueId};
 //module.exports = getUsers; //delete this if bad!
