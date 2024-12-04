@@ -25,6 +25,8 @@ conn.connect((err) =>
     conn.query("CREATE TABLE PROFILE(username INT, picture_path VARCHAR(256), answers VARCHAR(256), display_name VARCHAR(256), PRIMARY KEY(username))");
     conn.query("DROP TABLE IF EXISTS SWIPES;")
     conn.query("CREATE TABLE SWIPES (first_user VARCHAR(255), second_user VARCHAR(255), action VARCHAR(10));") //idk if the datatypes here are right
+    conn.query("DROP TABLE IF EXISTS QUESTIONS;")
+    conn.query("CREATE TABLE QUESTIONS (username VARCHAR(255), Q1 VARCHAR(255), Q2 VARCHAR(255), Q3 VARCHAR(255), Q4 VARCHAR(255), Q5 VARCHAR(255), Q6 VARCHAR(255), Q7 VARCHAR(255), PRIMARY KEY(username));")
     conn.end(); //11.26 how to rectify with the matches?? like idk why this is an int
 });
 

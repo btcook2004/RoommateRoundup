@@ -1,0 +1,31 @@
+This is a file with all the questions and a numbering. 
+Q1: How many roommates do you want?
+  1
+  2
+  3
+  4
+Q2: Are you a morning or night person?
+  Morning
+  Night
+Q3: Allergies? (select all that apply)
+  Cats
+  Dogs
+  Peanuts
+  Gluten
+Q4: Cleanliness level
+  Neat Freak
+  Clean
+  Middle
+  Messy
+  Extremely Messy
+Q5: Are you okay with drinking?
+  Yes
+  No
+Q6: Are you okay with smoking?
+  Yes
+  Yes (not inside)
+  No
+Q7: Are you okay with overnight guests?
+  Yes
+  Yes (with permission)
+  No
