@@ -6,6 +6,7 @@ function SwipePage() {
 
     const [users, setUsers] = useState([]); //store user data from the backend
     const [currentIndex, setCurrentIndex] = useState(0); //track the current user
+    const [status, setStatus] = useState(true); // state to track if there are users left to swipe
 
     useEffect(() => {
         const currentUserUsername = localStorage.getItem("username")
@@ -61,6 +62,8 @@ function SwipePage() {
             setCurrentIndex(currentIndex + 1);
         } else {
             console.log("No more users to swipe on!");
+            setStatus(false); 
+            console.log(status);
         }
     }
 
@@ -69,44 +72,47 @@ function SwipePage() {
     //ID IS USED HERE IN INSTEAD OF USERNAME
     
     return(
+
+        
         <div>
             <NavBar />
             <Swipe />
-
-            <div className="columnsContainer">
-                {currentUser ? (
+                {currentUser && status ? (
                     <>
-                        <div className="image-placeholder">
-                            <div className="column image-column">
-                                <img
-                                    src={currentUser.imageUrl || "../public/profile.svg"}
-                                    alt={`${currentUser.id}'s profile`}
-                                />
+                        <div className="columnsContainer">
+                            <div className="image-placeholder">
+                                <div className="column image-column">
+                                    <img
+                                        src={currentUser.imageUrl || "../public/profile.svg"}
+                                        alt={`${currentUser.id}'s profile`}
+                                    />
+                                </div>
+                            </div>
+
+                            <div className="column text-column">
+                                <h1>{currentUser.id}</h1>
+                                <textarea
+                                    placeholder={currentUser.bio || "No bio available"}
+                                    readOnly
+                                ></textarea>
                             </div>
                         </div>
-
-                        <div className="column text-column">
-                            <h1>{currentUser.id}</h1>
-                            <textarea
-                                placeholder={currentUser.bio || "No bio available"}
-                                readOnly
-                            ></textarea>
+                        <div className="swipeButtonsContainer">
+                            <button className="noButton" onClick={swipeLeft}>
+                                👎
+                            </button>
+                            <button className="yesButton" onClick={swipeRight}>
+                                👍
+                            </button>
                         </div>
                     </>
+                    
                 ) : (
-                    <h2>No more users to display</h2>
+                    <h2>No more users to swipe on</h2>
                 )}
             </div>
 
-            <div className="swipeButtonsContainer">
-                <button className="noButton" onClick={swipeLeft}>
-                    👎
-                </button>
-                <button className="yesButton" onClick={swipeRight}>
-                    👍
-                </button>
-            </div>
-        </div>
+
     )
 }
 
