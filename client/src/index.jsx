@@ -14,6 +14,7 @@ function linkToSignIn()
 function IndexPage()
 {
     return (
+      <section className="main">
       <div className="indexContainer">
         {/* <NavBar /> */}
 
@@ -31,8 +32,8 @@ function IndexPage()
           </nav>
           <h1>Match Today!!</h1>
           <button type="button" onClick={linkToSignUp}>Create Account</button>
-
       </div>
+      </section>
     );
 }
 
