@@ -18,7 +18,7 @@ function IndexPage()
       <div className="indexContainer">
         {/* <NavBar /> */}
 
-        <nav className="topBarContainer">
+        <div className="topBarContainer">
             <img src={"/logo.svg"} alt={"a great logo"} className={"logo"}/>
             <h3>oommate Roundup</h3>
             <ul className="topBar">
@@ -29,7 +29,7 @@ function IndexPage()
                 <button type="button" onClick={linkToSignIn}>Sign In</button>
               </li>
             </ul>
-          </nav>
+          </div>
           <h1>Match Today!!</h1>
           <button type="button" onClick={linkToSignUp}>Create Account</button>
       </div>
