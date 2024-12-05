@@ -5,6 +5,7 @@
 .main{
     height: 100vh;
     background-image: url('./assets/roommateFun.jpg');
+    background-size:cover;
 }
 .noButton, .yesButton {
     padding: 10px 20px;
