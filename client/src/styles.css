@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+.question{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    color: #04AA6D;
+    font-family: "Futura", sans-serif;
+    padding-left: 3px;
+}
+
 .main{
     height: 100vh;
     background-image: url('./assets/roommateFun.jpg');
