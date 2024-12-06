@@ -14,6 +14,7 @@ function SwipePage() {
             .then((response) => response.json())
             .then((data) => {
                 const filteredUsers = data.filter(user => user.id !== currentUserUsername);
+                console.log(filteredUsers);
                 setUsers(filteredUsers);
             })
             .catch((error) => console.error("Error fetching users:", error));
@@ -91,10 +92,9 @@ function SwipePage() {
 
                             <div className="column text-column">
                                 <h1>{currentUser.id}</h1>
-                                <textarea
-                                    placeholder={currentUser.bio || "No bio available"}
-                                    readOnly
-                                ></textarea>
+                                <div
+                                    className="bio-box">{currentUser.bio}
+                                </div>
                             </div>
                         </div>
                         <div className="swipeButtonsContainer">
