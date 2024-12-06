@@ -152,6 +152,7 @@ app.get("/users", async (req, res) => { //this is async btw
 
             id: row.username, //sends id to (username) to frontend
             password: row.password, //samesies with password
+            bio: row.bio,
         }));
 
         res.json(users); //users array sent!
