@@ -7,6 +7,7 @@ function SwipePage() {
     const [users, setUsers] = useState([]); //store user data from the backend
     const [currentIndex, setCurrentIndex] = useState(0); //track the current user
     const [status, setStatus] = useState(true); // state to track if there are users left to swipe
+    const [questions, setQuestions] = useState([]) //store question data from the backend
 
     useEffect(() => {
         const currentUserUsername = localStorage.getItem("username")
@@ -19,6 +20,21 @@ function SwipePage() {
             })
             .catch((error) => console.error("Error fetching users:", error));
     }, []);
+
+    //function to fetch question data
+    const fetchQuestions = async() => {
+        const currentUserUsername = localStorage.getItem("username")
+        fetch("http://localhost:3000/questions")
+        .then((response) => response.json())
+        .then((data) => {
+            const filteredQuestions = data.filter(user=> user.id !== currentUserUsername);
+            console.log(filteredQuestions);
+            setQuestions(filteredQuestions);
+        })
+        .catch((error) => console.error("Error fetching questions:", error));
+    };
+
+    useEffect(() => { fetchQuestions(); }, []);
 
 
     function swipeRight() {
@@ -70,7 +86,14 @@ function SwipePage() {
 
     // Get the current user to display
     const currentUser = users[currentIndex];
-    //ID IS USED HERE IN INSTEAD OF USERNAME
+     //ID IS USED HERE IN INSTEAD OF USERNAME
+
+    const userQuestions = currentUser ? Object.keys(currentUser).filter(
+        key => key.startsWith('Q')
+    ).map(key => ({
+        question: key,
+        answer: currentUser[key]
+    })) : [];    
     
     return(
 
@@ -96,6 +119,26 @@ function SwipePage() {
                                     className="bio-box">{currentUser.bio}
                                 </div>
                             </div>
+
+                            <div className="questionsContainer">
+                                 <h1>{`${currentUser.id}'s Answers`}</h1>
+                                    {userQuestions.length > 0 ? (
+                                    userQuestions.map((question, index) => (
+                                        <div key={index} className="question">
+                                            <h3>{question.question}</h3> {/* Display the question */}
+                                            <p>{question.answer}</p> {/* Display the answer */}
+                                         </div>
+                                        ))
+                                 ) : (
+                                    <p>No questions available</p>
+                                 )}
+                            </div>
+
+                            <h1>{`Your Answers`}</h1>
+                            <div className="userQuestionsContainer">
+                                
+                            </div>
+
                         </div>
                         <div className="swipeButtonsContainer">
                             <button className="noButton" onClick={swipeLeft}>
