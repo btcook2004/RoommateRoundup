@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 function edit() {
-  window.location.href = "/editprofile";
+  window.location.href = "/editMode";
 }
 
 function EditProfile(){

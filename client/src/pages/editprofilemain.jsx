@@ -1,12 +1,17 @@
 import NavBar from '../NavBar'
 import EditProfile from './editprofile'
+import EditComponent from './EditComponent'
 
 function EditProfileMain() {
     return(
         <div>
-        <NavBar></NavBar>
+            <NavBar></NavBar>
 
-        <EditProfile/>
+            <EditProfile/>
+
+            {/* <EditComponent/> */}
+
+
         </div>
     )
 }

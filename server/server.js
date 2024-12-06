@@ -53,8 +53,43 @@ app.post("/checkUsername", async (req, res) => {
     }
 });  */
 
+app.post("/saveAnswers", (req, res) => {
+    const username = req.body.name;
+    const answer1 = req.body.Q1;
+    const answer2 = req.body.Q2;
+    const answer3 = req.body.Q3;
+    const answer4 = req.body.Q4;
+    const answer5 = req.body.Q5;
+    const answer6 = req.body.Q6;
+    const answer7 = req.body.Q7;
+
+    console.log("Received email: " + req.body.name + " Q1: " + req.body.Q1 + " Q2: " + req.body.Q2 + " Q3: " + req.body.Q3 + " Q4: " + req.body.Q4 + " Q5: " + req.body.Q5 + " Q6: " + req.body.Q6 + " Q7: " + req.body.Q7);
+    runQuery(`INSERT INTO QUESTIONS (username, Q1, Q2, Q3, Q4, Q5, Q6, Q7) VALUES('${username}', '${answer1}', '${answer2}', '${answer3}', '${answer4}', '${answer5}', '${answer6}', '${answer7}';`)
+
+
+});
+
+app.post( "/getQuestionAnswers", async (req, res) => {
+    const username = req.body.name;
+    console.log("Received email: " + req.body.name);
+    try {
+        const query = `SELECT * FROM QUESTION_ANSWERS WHERE username = '${username}';`;
+        console.log("Query: " + query);
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+        //await waits for promise to resolve
+        console.log("HELLO: " + JSON.stringify(rows));
+        res.send(rows);
+    }
+    catch (error) {
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
 app.post("/signup", (req, res) =>
-{
+{ //ADD IN DEFAULT QUESTION VALUES OF NULL!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     const username = req.body.name;
     const password = req.body.password;
     console.log("Received email: " + req.body.name + " and password: " + req.body.password);
