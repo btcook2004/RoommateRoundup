@@ -11,6 +11,7 @@ import SwipePage from './pages/swipePage';
 import MainDashboard from './pages/maindashboard';
 import EditProfileMain from './pages/editprofilemain';
 import SignInPage from './pages/SignIn';
+import editMode from './pages/editmode';
 
 const router = createBrowserRouter([
     {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
       path: "/signin",
       element: <SignInPage/>
     },
+    {
+      path: "/editmode",
+      element: <editMode/>
+    }
 
   ]);
 createRoot(document.getElementById('root')).render(
