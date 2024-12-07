@@ -4,11 +4,54 @@ function edit() {
   window.location.href = "/editprofile";
 }
 
-
 function EditComponent(){
   function save() {
-    //fill this in
-    ;
+
+    let roommates = document.querySelector('input[name="roommates"]:checked').value;
+    console.log("Selected roommates:", roommates);
+
+    let morning = document.querySelector('input[name="morning"]:checked').value;
+    console.log("Selected morning:", morning);
+
+    let allergies = document.querySelector('input[name="allergies"]').value;
+    console.log("Entered allergies:", allergies);
+
+    let cleanliness = document.querySelector('input[name="cleanliness"]:checked').value;
+    console.log("Selected cleanliness:", cleanliness);
+
+    let drinking = document.querySelector('input[name="drinking"]:checked').value;
+    console.log("Selected drinking:", drinking);
+
+    let smoking = document.querySelector('input[name="smoking"]:checked').value;
+    console.log("Selected smoking:", smoking);
+
+    let overnightGuests = document.querySelector('input[name="OvernightGuests"]:checked').value;
+    console.log("Selected overnight guests:", overnightGuests);
+
+    fetch('http://localhost:3000/saveAnswers', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: 
+        JSON.stringify({
+          name: localStorage.getItem('username'),
+          Q1: roommates,
+          Q2: morning,
+          Q3: allergies,
+          Q4: cleanliness,
+          Q5: drinking,
+          Q6: smoking,
+          Q7: overnightGuests
+        })
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:');
+      })
+      .catch((error) => {
+        console.error('Error: here');
+      });
   }
 
   return (
@@ -19,10 +62,10 @@ function EditComponent(){
       </div>
 
       <h1>Edit Mode</h1>
-      <button className="save-button" onClinck={save}>Save</button>
+      <button className="save-button" onClick={save}>Save</button>
       
       <div className="questionContainer">
-        <div classname="question">
+        <div className="question">
           <h2>How many roommates do you want?</h2>
           <div>
             <label>
@@ -40,7 +83,7 @@ function EditComponent(){
           </div>
         </div>
 
-        <div classname="question">
+        <div className="question">
           <h2>Are you a morning or a night person?</h2>
           <div>
             <label>
@@ -53,7 +96,7 @@ function EditComponent(){
           </div>
         </div>
 
-        <div classname="question">
+        <div className="question">
           <h2>Select any allergies</h2>
           <div>
             <label>
@@ -62,7 +105,7 @@ function EditComponent(){
           </div>  
         </div>
 
-        <div classname="question">
+        <div className="question">
           <h2>What is your cleanliness level?</h2>
           <div>
             <label>
@@ -83,7 +126,7 @@ function EditComponent(){
           </div>
         </div>
 
-        <div classname="question">
+        <div className="question">
           <h2>Are you okay with drinking?</h2>'
           <div>
             <label>
@@ -95,7 +138,7 @@ function EditComponent(){
           </div>
         </div>
 
-        <div classname="question">
+        <div className="question">
           <h2>Are you okay with smoking?</h2>'
           <div>
             <label>
@@ -110,22 +153,20 @@ function EditComponent(){
           </div>
         </div> 
 
-        <div classname="question">
+        <div className="question">
           <h2>Are you okay with overnight guests?</h2>'
           <div>
             <label>
-              <input type="radio" name="Overnightguests" value="Yes" /> Yes 
+              <input type="radio" name="OvernightGuests" value="Yes" /> Yes 
             </label>
             <label>
-              <input type="radio" name="Overnightguests" value="No" /> No
+              <input type="radio" name="OvernightGuests" value="No" /> No
             </label>
           </div>
         </div> 
 
 
       </div>
-        
-
 
       {/* <div className="columnsContainer">
         <div className="image-placeholder">
@@ -141,7 +182,7 @@ function EditComponent(){
 
         </div>
       </div> */}
-      <button className="save-button" onClinck={save}>Save</button>
+      <button className="save-button" onClick={save}>Save</button>
       <button className="edit-button" onClick={edit}>Done</button>
     </div>
   );
