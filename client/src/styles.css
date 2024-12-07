@@ -10,7 +10,12 @@
     font-family: "Futura", sans-serif;
     padding-left: 3px;
 }
-
+.answer{
+    text-align: center;   
+}
+.center{
+    text-align: center;    
+}
 .main{
     height: 100vh;
     background-image: url('./assets/roommateFun.jpg');
@@ -43,6 +48,19 @@
     display: block;
     margin: 20px auto;
     text-align: center;
+
+}
+.save-button{
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    min-width: 15vh;
+}
+.done-button{
+    display: block;
+    margin: 20px auto;
+    text-align: center;    
+    min-width: 15vh;
 }
 .image-placeholder{
     background-color: #b7b7b7;
@@ -110,6 +128,13 @@ h4{
     font-family: "Futura", sans-serif;
     text-align: center;
     font-size: 25px;
+}
+h5{
+    color: #1b2430;
+    font-family: "Futura", sans-serif;
+    text-align: center;
+    font-size: 25px;
+
 }
 label
 {
