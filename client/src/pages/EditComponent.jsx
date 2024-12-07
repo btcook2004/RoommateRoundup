@@ -7,28 +7,75 @@ function edit() {
 function EditComponent(){
   function save() {
 
-    let roommates = document.querySelector('input[name="roommates"]:checked').value;
-    console.log("Selected roommates:", roommates);
+    // try{
+    if( document.querySelector('input[name="roommates"]:checked') == null)
+      console.log("Poopy");
+    else
+      console.log("Pee");
+    let roommates1 = document.querySelector('input[name="roommates"]:checked').value;
+    console.log("Selected roommates:", roommates1);
+    // } catch (error) {console.log("roommates1")};
 
+    // try{
+    if( document.querySelector('input[name="morning"]:checked') == null)
+      console.log("Poopy");
+    else
+      console.log("Pee");
     let morning = document.querySelector('input[name="morning"]:checked').value;
     console.log("Selected morning:", morning);
+    // } catch (error) {console.log("morning")};
 
+
+
+    // try{
+    if( document.querySelector('input[name="allergies"]:checked') == null)
+      console.log("Poopy");
+    else
+      console.log("Pee");
     let allergies = document.querySelector('input[name="allergies"]').value;
     console.log("Entered allergies:", allergies);
+    // } catch (error) {console.log("allergies")};
 
+
+
+    // try{
+    if( document.querySelector('input[name="cleanliness"]:checked') == null)
+        console.log("Poopy");
+    else
+      console.log("Pee");
     let cleanliness = document.querySelector('input[name="cleanliness"]:checked').value;
     console.log("Selected cleanliness:", cleanliness);
+    // } catch (error) {console.log("cleanliness")};
 
+    // try{
+    if( document.querySelector('input[name="drinking"]:checked') == null)
+        console.log("Poopy");
+    else
+    console.log("Pee");
     let drinking = document.querySelector('input[name="drinking"]:checked').value;
     console.log("Selected drinking:", drinking);
+    // } catch (error) {console.log("drinking")};
 
+    // try{
+    if( document.querySelector('input[name="smoking"]:checked') == null)
+        console.log("Poopy");
+    else
+    console.log("Pee");
     let smoking = document.querySelector('input[name="smoking"]:checked').value;
     console.log("Selected smoking:", smoking);
+    // } catch (error) {console.log("smoking")};
 
+    // try{
+    if( document.querySelector('input[name="OvernightGuests"]:checked') == null)
+        console.log("Poopy");
+    else
+    console.log("Pee");
     let overnightGuests = document.querySelector('input[name="OvernightGuests"]:checked').value;
     console.log("Selected overnight guests:", overnightGuests);
+    // } catch (error) {console.log("overnightGuests")};
 
-    fetch('http://localhost:3000/saveAnswers', {
+
+    const request = new Request("http://localhost:3000/saveAnswers", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -36,7 +83,7 @@ function EditComponent(){
       body: 
         JSON.stringify({
           name: localStorage.getItem('username'),
-          Q1: roommates,
+          Q1: roommates1,
           Q2: morning,
           Q3: allergies,
           Q4: cleanliness,
@@ -45,31 +92,27 @@ function EditComponent(){
           Q7: overnightGuests
         })
     })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:');
-      })
-      .catch((error) => {
-        console.error('Error: here');
-      });
+    fetch(request)
+      .then((response) => response.text())
+      .then(text => console.log("Server response: ", text))
+      .catch((error) => console.error("Error: ", error));
   }
 
   return (
-
     <div>
       <div>
-          <NavBar></NavBar>
+        <NavBar></NavBar>
       </div>
 
       <h1>Edit Mode</h1>
       <button className="save-button" onClick={save}>Save</button>
       
       <div className="questionContainer">
-        <div classname="question">
-          <h5>How many roommates do you want?</h5>'
+        <div className="question">
+          <h5>How many roommates do you want?</h5>
           <div className="answer">
             <label>
-              <input type="radio" name="roommates" value="1" /> 1 
+              <input type="radio" name="roommates" value="1" defaultChecked /> 1 
             </label> &nbsp;&nbsp;
             <label>
               <input type="radio" name="roommates" value="2" /> 2 
@@ -82,22 +125,25 @@ function EditComponent(){
             </label>
           </div>
         </div>
+
         <br></br>
-        <div classname="question">
-          '<h5>Are you a morning or a night person?</h5>'
+
+        <div className="question">
+          <h5>Are you a morning or a night person?</h5>
           <div className="answer">
             <label>
-              <input type="radio" name="morning" value="Morning" /> Morning 
+              <input type="radio" name="morning" value="Morning" defaultChecked /> Morning 
             </label>&nbsp;&nbsp;
             <label>
               <input type="radio" name="morning" value="Night" /> Night
             </label>
-
           </div>
         </div>
+
         <br></br>
-        <div classname="question">
-          '<h5>Enter any allergies:</h5>'
+
+        <div className="question">
+          <h5>Enter any allergies:</h5>
           <div className="answer">
             <label>
               <input type="text" name="allergies" placeholder="Enter any allergies" />
@@ -106,11 +152,11 @@ function EditComponent(){
         </div>
         <br></br>
 
-        <div classname="question">
-          '<h5>What is your cleanliness level?</h5>'
+        <div className="question">
+          <h5>What is your cleanliness level?</h5>
           <div className="answer">
             <label>
-              <input type="radio" name="cleanliness" value="NeatFreak" /> Neat Freak 
+              <input type="radio" name="cleanliness" value="NeatFreak" defaultChecked /> Neat Freak 
             </label>&nbsp;&nbsp;
             <label>
               <input type="radio" name="cleanliness" value="Clean" /> Clean
@@ -128,11 +174,11 @@ function EditComponent(){
         </div>
         <br></br>
 
-        <div classname="question">
-          '<h5>Are you okay with drinking?</h5>'
+        <div className="question">
+          <h5>Are you okay with drinking?</h5>
           <div className="answer">
             <label>
-              <input type="radio" name="drinking" value="Yes" /> Yes 
+              <input type="radio" name="drinking" value="Yes" defaultChecked /> Yes 
             </label>&nbsp;&nbsp;
             <label>
               <input type="radio" name="drinking" value="No" /> No
@@ -141,11 +187,12 @@ function EditComponent(){
         </div>
         <br></br>
 
-        <div classname="question">
+        <div className="question"></div>
+        <div className="question">
           '<h5>Are you okay with smoking?</h5>'
           <div className="answer">
             <label>
-              <input type="radio" name="smoking" value="Yes" /> Yes
+              <input type="radio" name="smoking" value="Yes" defaultChecked /> Yes
             </label>&nbsp;&nbsp;
             <label>
               <input type="radio" name="smoking" value="YesNotInside" /> Yes (not inside) 
@@ -157,11 +204,11 @@ function EditComponent(){
         </div> 
         <br></br>
 
-        <div classname="question">
+        <div className="question">
           '<h5>Are you okay with overnight guests?</h5>'
           <div className="answer">
             <label>
-              <input type="radio" name="Overnightguests" value="Yes" /> Yes 
+              <input type="radio" name="OvernightGuests" value="Yes" defaultChecked /> Yes 
             </label>&nbsp;&nbsp;
             <label>
               <input type="radio" name="OvernightGuests" value="No" /> No
@@ -172,21 +219,7 @@ function EditComponent(){
 
       </div>
 
-      {/* <div className="columnsContainer">
-        <div className="image-placeholder">
-          <div className="column image-column">
-              <img
-                src={localStorage.imageUrl || "../public/profile.svg"}
-                alt={`${localStorage.id}'s profile`}
-              />
-            </div>
-        </div>
-        <div className="column text-column">
-        <h4>{localStorage.getItem('username')}</h4>
-
-        </div>
-      </div> */}
-      <button className="save-button" onClinck={save}>Save</button>
+      <button className="save-button" onClick={save}>Save</button>
       <button className="done-button" onClick={edit}>Done</button>
     </div>
   );
