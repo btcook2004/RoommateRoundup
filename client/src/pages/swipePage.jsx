@@ -7,6 +7,7 @@ function SwipePage() {
     const [currentIndex, setCurrentIndex] = useState(0); // Track the current user
     const [status, setStatus] = useState(true); // State to track if there are users left to swipe
     const [questions, setQuestions] = useState([]); // Store question data from the backend
+    const [currentUserQuestions, setCurrentUserQuestions] = useState([])
 
     // Fetch users and set state
     useEffect(() => {
@@ -22,7 +23,22 @@ function SwipePage() {
                 }
             })
             .catch((error) => console.error("Error fetching users:", error));
-    }, []); // Empty dependency array to run only once on component mount
+
+        fetch("http://localhost:3000/getQuestionAnswers", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ name: currentUserUsername }), // Use current user's username
+        })
+            .then((response) => response.json())
+            .then((data) => {
+                if (data && data[0]) {
+                    setCurrentUserQuestions(data[0]); // Set the logged-in user's questions
+                }
+            })
+            .catch((error) => console.error("Error fetching current user questions:", error));
+    }, []);
 
     // Function to fetch question data for a specific user
     const fetchQuestions = async (swipedUserId) => {
@@ -152,9 +168,26 @@ function SwipePage() {
                                 )}
                             </div>
                         </div>
-                        
-                        <h1>Your Answers</h1>
-                        <div className="userQuestionsContainer"></div>
+                        <div className="userQuestionsContainer">
+                            <h2 className="questionsTitle">{`Your Answers`}</h2>
+                            <div className="scrollableCard">
+                                {currentUserQuestions && Object.keys(currentUserQuestions).length > 0 ? (
+                                    <div className="questionsList">
+                                        {Object.entries(currentUserQuestions).map(([question, answer], index) => (
+                                            <div key={index} className="questionItem">
+                                                <div className="questionText">
+                                                    <h3 className="questionTitle">{question}</h3>
+                                                    <p className="answerText">{answer}</p>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p className="noQuestionsMessage">No questions available</p>
+                                )}
+                            </div>
+                        </div>
+
 
                     </div>
                     <div className="swipeButtonsContainer">
