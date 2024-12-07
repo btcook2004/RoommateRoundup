@@ -73,7 +73,7 @@ app.post( "/getQuestionAnswers", async (req, res) => {
     const username = req.body.name;
     console.log("Received email: " + req.body.name);
     try {
-        const query = `SELECT * FROM QUESTION_ANSWERS WHERE username = '${username}';`;
+        const query = `SELECT * FROM QUESTIONS WHERE username = '${username}';`;
         console.log("Query: " + query);
 
         const rows = await getUsers(query); //goes to getUsers function in other file

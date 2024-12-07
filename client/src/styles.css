@@ -285,6 +285,68 @@ button {
     overflow-y: auto;
 }
 
+.questionsContainer {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.questionsTitle {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.scrollableCard {
+    max-height: 500px; /* Set a max height for the scrollable card */
+    overflow-y: auto; /* Enables vertical scrolling */
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.questionsList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.questionItem {
+    padding: 15px;
+    border-bottom: 1px solid #ddd; /* Light separator between questions */
+}
+
+.questionText {
+    display: flex;
+    flex-direction: column;
+}
+
+.questionTitle {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.answerText {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin-top: 5px;
+}
+
+.noQuestionsMessage {
+    font-size: 1rem;
+    color: #999;
+    text-align: center;
+    margin-top: 10px;
+}
+
 @layer base {
   :root {
         --radius:0.5rem;
