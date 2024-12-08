@@ -136,17 +136,16 @@ function SwipePage() {
                 <>
                     <div className="columnsContainer">
                         <div className="image-placeholder">
-                            <div className="column image-column">
+                        <div><h1>{currentUser.id}</h1></div>
+                            <div className="image-column">
                                 <img
                                     src={currentUser.imageUrl || "../public/profile.svg"}
                                     alt={`${currentUser.id}'s profile`}
                                 />
                             </div>
-                        </div>
-
-                        <div className="column text-column">
-                            <h1>{currentUser.id}</h1>
-                            <div className="bio-box">{currentUser.bio}</div>
+                            <div className="text-column">
+                                <div className="bio-box">{currentUser.bio}</div>
+                            </div>
                         </div>
 
                         <div className="questionsContainer">
@@ -168,7 +167,7 @@ function SwipePage() {
                                 )}
                             </div>
                         </div>
-                        <div className="userQuestionsContainer">
+                        <div className="questionsContainer">
                             <h2 className="questionsTitle">{`Your Answers`}</h2>
                             <div className="scrollableCard">
                                 {currentUserQuestions && Object.keys(currentUserQuestions).length > 0 ? (
@@ -194,9 +193,10 @@ function SwipePage() {
                         <button className="noButton" onClick={swipeLeft}>👎</button>
                         <button className="yesButton" onClick={swipeRight}>👍</button>
                     </div>
+                    
                 </>
             ) : (
-                <h2>No more users to swipe on</h2>
+                <h4 className="noSwipe">No more users to swipe on</h4>
             )}
         </div>
     );

@@ -43,6 +43,7 @@
     display: flex;
     justify-content: space-evenly;
     margin-top: 10px;
+
 }
 .edit-button{
     display: block;
@@ -63,12 +64,18 @@
     min-width: 15vh;
 }
 .image-placeholder{
-    background-color: #b7b7b7;
-    width: 200px;
-    height: 100%;
-    border-radius: 10px;
+    display: grid;
+    place-items: center; /* Centers both horizontally and vertically */
+    height: fit-content;       /* Example: Full height of the viewport */
+    text-align: center;
 }
 
+.image-column{
+    background-color: #b7b7b7;
+    width: 200px;
+    border-radius: 10px;
+    margin: 10px 10px;
+}
 .columnsContainer
 {
     display: flex;
@@ -78,12 +85,11 @@
     margin: 10px 10px;
     margin-left: 0px;
 }
-/* .columnsContainer img
-{
-    width: 50%;
-    height: 75%;
-    border-radius: 10%;
-} */
+.text-column{
+    margin-top: 40px;
+    width: 300px;
+}
+
 .topBarContainer /*formats the navbar for index */
 {
     display: flex;
@@ -134,7 +140,10 @@ h5{
     font-family: "Futura", sans-serif;
     text-align: center;
     font-size: 25px;
-
+}
+p{
+    color: #1b2430;
+    font-family: "Futura", sans-serif;
 }
 label
 {
@@ -283,14 +292,20 @@ button {
     background-color: #f9f9f9;
     max-height: 300px;
     overflow-y: auto;
+    color: #1b2430;
+    font-family: "Futura", sans-serif;
+    align-items: center;
 }
-
+.noSwipe{
+    margin-top: 19%;
+}
 .questionsContainer {
     margin-top: 20px;
-    padding: 15px;
+    padding: 10px;
     background-color: #f9f9f9;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 350px;
 }
 
 .questionsTitle {
@@ -301,7 +316,7 @@ button {
 }
 
 .scrollableCard {
-    max-height: 500px; /* Set a max height for the scrollable card */
+    max-height: 550px; /* Set a max height for the scrollable card */
     overflow-y: auto; /* Enables vertical scrolling */
     padding: 10px;
     background-color: #fff;
