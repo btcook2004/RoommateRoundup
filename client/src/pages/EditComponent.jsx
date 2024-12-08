@@ -110,6 +110,7 @@ function EditComponent(){
       <div className="questionContainer">
         <div className="question">
           <h5>How many roommates do you want?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="roommates" value="1" defaultChecked /> 1 
@@ -125,11 +126,13 @@ function EditComponent(){
             </label>
           </div>
         </div>
-
+        <br></br>
+        <br></br>
         <br></br>
 
         <div className="question">
           <h5>Are you a morning or a night person?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="morning" value="Morning" defaultChecked /> Morning 
@@ -141,9 +144,11 @@ function EditComponent(){
         </div>
 
         <br></br>
+        <br></br>
 
         <div className="question">
           <h5>Enter any allergies:</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="text" name="allergies" placeholder="Enter any allergies" />
@@ -151,9 +156,11 @@ function EditComponent(){
           </div>  
         </div>
         <br></br>
+        <br></br>
 
         <div className="question">
           <h5>What is your cleanliness level?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="cleanliness" value="NeatFreak" defaultChecked /> Neat Freak 
@@ -173,9 +180,11 @@ function EditComponent(){
           </div>
         </div>
         <br></br>
+        <br></br>
 
         <div className="question">
           <h5>Are you okay with drinking?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="drinking" value="Yes" defaultChecked /> Yes 
@@ -186,10 +195,12 @@ function EditComponent(){
           </div>
         </div>
         <br></br>
+        <br></br>
 
         <div className="question"></div>
         <div className="question">
-          '<h5>Are you okay with smoking?</h5>'
+          <h5>Are you okay with smoking?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="smoking" value="Yes" defaultChecked /> Yes
@@ -203,9 +214,11 @@ function EditComponent(){
           </div>
         </div> 
         <br></br>
+        <br></br>
 
         <div className="question">
-          '<h5>Are you okay with overnight guests?</h5>'
+          <h5>Are you okay with overnight guests?</h5>
+          <br></br>
           <div className="answer">
             <label>
               <input type="radio" name="OvernightGuests" value="Yes" defaultChecked /> Yes 
@@ -214,7 +227,8 @@ function EditComponent(){
               <input type="radio" name="OvernightGuests" value="No" /> No
             </label>
           </div>
-        </div> 
+        </div>
+        <br></br> 
 
 
       </div>
