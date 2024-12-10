@@ -112,14 +112,14 @@ function EditComponent(){
   }
 
   return (
-    <div>
+    <div className='backColor'>
       <div>
         <NavBar></NavBar>
       </div>
 
       <h1>Edit Mode</h1>
       <button className="save-button" onClick={save}>Save</button>
-      {saveSuccess && <p>Save successful!</p>}
+      {saveSuccess && <p className='notification'>Save successful!</p>}
       
       <div className="questionContainer">
         <div className="question">
@@ -262,8 +262,9 @@ function EditComponent(){
       </div>
 
       <button className="save-button" onClick={save}>Save</button>
-      {saveSuccess && <p>Save successful!</p>}
+
       {/* <button className="done-button" onClick={edit}>Done</button> */}
+      {saveSuccess && <p className='notification'>Save successful!</p>}
       <Link to="/editprofile" className = "CreateAccountButton" >Done</Link>
     </div>
   );
