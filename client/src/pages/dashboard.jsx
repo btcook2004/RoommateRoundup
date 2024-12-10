@@ -70,13 +70,13 @@ function Dashboard() {
 
         <div className='buttonContainer'>
           <div className='buttonColumn'>
-            <button className="buttonDash" onClick={swipePage}>Start Swiping</button>
+            <Link className="buttonDash" to="/swipePage">Start Swiping</Link>
           </div>
           <div className='buttonColumn'>
-            <button className="buttonDash" onClick={editProfile}>Edit Profile</button>
+            <Link className="buttonDash" to="/editprofile">Edit Profile></Link>
           </div>
           <div className='buttonColumn'>
-            <button className="buttonDash" onClick={matching}>View Matches</button>
+            <Link className="buttonDash" to="/messagePage">View Matches</Link>
           </div>
         </div>
 
