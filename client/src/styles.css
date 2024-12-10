@@ -11,7 +11,8 @@
     padding-left: 3px;
 }
 .answer{
-    text-align: center;   
+    text-align: center;
+    font-weight: lighter;   
 }
 .center{
     text-align: center;    
@@ -152,6 +153,10 @@ p{
     color: #1b2430;
     font-family: "Futura", sans-serif;
 }
+.notification{
+    text-align: center;
+    color: #0cad5b;
+}
 label
 {
     color: #1b2430;
@@ -188,7 +193,7 @@ nav{
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      color: white;
+      colo: #dedede;
       font-family: "Futura", sans-serif;
       transition: 0.3s ease-in-out;
 }
@@ -225,6 +230,8 @@ a
 }
 .dashboard
 {
+    background-color:#dedede; 
+
     display: flex;
   flex-direction: column;
   align-items: center; /* Center items horizontally */
@@ -372,4 +379,31 @@ button {
         --radius:0.5rem;
     }
 }
-
+.buttonContainer{
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    padding-bottom: 10%; 
+    padding-top: 2%;        
+}
+.buttonColumn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+}
+.buttonDash{
+    padding: 25px 50px;       
+    border: none;        
+    cursor: pointer; 
+    width: 350px;
+}
+.welcome{
+    font-size: 60px;
+}
+.backColor{
+    background-color:#dedede; 
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}

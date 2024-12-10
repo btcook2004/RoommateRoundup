@@ -8,7 +8,7 @@ function MessagePage()
 {
     let animals = ['Dog', 'Lemur', 'Wombat'];
     return (
-        <div>
+        <div className="backColor">
             <div>
                 <h1>Messages</h1>
             </div>

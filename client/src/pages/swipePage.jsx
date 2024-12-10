@@ -129,7 +129,7 @@ function SwipePage() {
     })) : [];
 
     return (
-        <div>
+        <div className = "backColor">
             <NavBar />
             <Swipe />
             {currentUser && status ? (
