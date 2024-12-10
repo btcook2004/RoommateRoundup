@@ -74,28 +74,8 @@ app.post("/saveAnswers", async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 
-    // app.post("/insertAnswers", async (req, res) => {
-    //     const username = req.body.name;
-    //     const answer1 = req.body.Q1;
-    //     const answer2 = req.body.Q2;
-    //     const answer3 = req.body.Q3;
-    //     const answer4 = req.body.Q4;
-    //     const answer5 = req.body.Q5;
-    //     const answer6 = req.body.Q6;
-    //     const answer7 = req.body.Q7;
-    
-    //     try{
-    //         console.log("Received email: " + req.body.name + " Q1: " + req.body.Q1 + " Q2: " + req.body.Q2 + " Q3: " + req.body.Q3 + " Q4: " + req.body.Q4 + " Q5: " + req.body.Q5 + " Q6: " + req.body.Q6 + " Q7: " + req.body.Q7);
-    //         const query = `INSERT INTO QUESTIONS SET Q1 = '${answer1}', Q2 = '${answer2}', Q3 = '${answer3}', Q4 = '${answer4}', Q5 = '${answer5}', Q6 = '${answer6}', Q7 = '${answer7}' WHERE username = '${username}'`;
-    //         const rows = await getUsers(query);
-    //         res.send("Sent query");
-    //     }
-    //     catch (error) {
-    //         console.error("Error saving answers:", error);
-    //         res.status(500).send("Internal Server Error");
-    //     }
-
 });
+
 
 app.post( "/getQuestionAnswers", async (req, res) => {
     const username = req.body.name;
@@ -108,6 +88,25 @@ app.post( "/getQuestionAnswers", async (req, res) => {
         //await waits for promise to resolve
         console.log("HELLO: " + JSON.stringify(rows));
         res.send(rows);
+    }
+    catch (error) {
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.post( "/getAnswer", async (req, res) => {
+    const username = req.body.name;
+    const Q = req.body.QNumber;
+    try{
+        const query = `SELECT Q${Q} FROM QUESTIONS WHERE username = '${username}';`;
+        console.log("Query: " + query);
+
+        const rows = await getUsers(query);
+        console.log("SingleAnswer: " + "test");
+        // console.log("SingleAnswer: " + JSOSN.stringify(rows));
+        let answer = rows[0][`Q${Q}`];
+        res.send(answer);
     }
     catch (error) {
         console.error("Error retrieving users:", error);
