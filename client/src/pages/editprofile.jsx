@@ -160,7 +160,9 @@ function EditProfile(){
       <h1>Profile Page</h1>
     <div className="columnsContainer">
       <div className="image-placeholder">
-        <div className="column image-column">
+      <h1>{localStorage.getItem('username')}</h1>
+      <br></br>
+        <div className="image-column">
             <img
               src={localStorage.imageUrl || "../public/profile.svg"}
               alt={`${localStorage.id}'s profile`}
@@ -168,22 +170,28 @@ function EditProfile(){
           </div>
       </div>
       <script></script>
-      <div className="column text-column">
-      <h4>{localStorage.getItem('username')}</h4>
+      <div className="text-column">
       <h6>How many roommates do you want?</h6>
-      <h7>{answer1}</h7>
+      <h6 className='answer'>{answer1}</h6>
+      {/* <br></br> */}
       <h6>Are you a morning or night person?</h6>
-      <h7>{answer2}</h7>
+      <h6 className='answer'>{answer2}</h6>
+      {/* <br></br> */}
       <h6>Allergies?</h6>
-      <h7>{answer3}</h7>
-      <h6>What is your cleanliness leve?</h6>
-      <h7>{answer4}</h7>
+      <h6 className='answer'>{answer3}</h6>
+      {/* <br></br> */}
+      <h6>What is your cleanliness level?</h6>
+      <h6 className='answer'>{answer4}</h6>
+      {/* <br></br> */}
       <h6>Are you okay with drinking?</h6>
-      <h7>{answer5}</h7>
+      <h6 className='answer'>{answer5}</h6>
+      {/* <br></br> */}
       <h6>Are you okay with smoking?</h6>
-      <h7>{answer6}</h7>
+      <h6 className='answer'>{answer6}</h6>
+      {/* <br></br> */}
       <h6>Are you okay with overnight guests?</h6>
-      <h7>{answer7}</h7>
+      <h6 className='answer'>{answer7}</h6>
+      <br></br>
 
       </div>
     </div>

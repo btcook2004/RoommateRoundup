@@ -86,7 +86,6 @@
     margin-left: 0px;
 }
 .text-column{
-    margin-top: 40px;
     width: 300px;
 }
 
@@ -141,6 +140,14 @@ h5{
     text-align: center;
     font-size: 25px;
 }
+h6{
+    margin-top: 5%;
+    color: #1b2430;
+    font-family: "Futura", sans-serif;
+    text-align: center;
+    font-size: 18px;
+}
+
 p{
     color: #1b2430;
     font-family: "Futura", sans-serif;
@@ -307,16 +314,15 @@ button {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 350px;
 }
-
 .questionsTitle {
     font-size: 1.5rem;
-    font-weight: 600;
+    font-weight: 450;
     margin-bottom: 15px;
-    color: #333;
+
 }
 
 .scrollableCard {
-    max-height: 550px; /* Set a max height for the scrollable card */
+    max-height: 610px; /* Set a max height for the scrollable card */
     overflow-y: auto; /* Enables vertical scrolling */
     padding: 10px;
     background-color: #fff;
@@ -325,9 +331,8 @@ button {
 }
 
 .questionsList {
-    display: flex;
+    font-size: 1px;
     flex-direction: column;
-    gap: 20px;
 }
 
 .questionItem {
