@@ -12,74 +12,62 @@ function EditComponent(){
 
   function save() {
 
+    if( document.querySelector('input[name="bio"]').value == "")
+      console.log("Poopy");
+    else
+      console.log("Pee");
+    let bio = document.querySelector('input[name="bio"]').value;
+    console.log("Entered bio:", bio);
 
 
-    // try{
     if( document.querySelector('input[name="roommates"]:checked') == null)
       console.log("Poopy");
     else
       console.log("Pee");
     let roommates1 = document.querySelector('input[name="roommates"]:checked').value;
     console.log("Selected roommates:", roommates1);
-    // } catch (error) {console.log("roommates1")};
 
-    // try{
     if( document.querySelector('input[name="morning"]:checked') == null)
       console.log("Poopy");
     else
       console.log("Pee");
     let morning = document.querySelector('input[name="morning"]:checked').value;
     console.log("Selected morning:", morning);
-    // } catch (error) {console.log("morning")};
 
-
-
-    // try{
     if( document.querySelector('input[name="allergies"]:checked') == null)
       console.log("Poopy");
     else
       console.log("Pee");
     let allergies = document.querySelector('input[name="allergies"]').value;
     console.log("Entered allergies:", allergies);
-    // } catch (error) {console.log("allergies")};
 
-
-
-    // try{
     if( document.querySelector('input[name="cleanliness"]:checked') == null)
         console.log("Poopy");
     else
       console.log("Pee");
     let cleanliness = document.querySelector('input[name="cleanliness"]:checked').value;
     console.log("Selected cleanliness:", cleanliness);
-    // } catch (error) {console.log("cleanliness")};
 
-    // try{
     if( document.querySelector('input[name="drinking"]:checked') == null)
         console.log("Poopy");
     else
     console.log("Pee");
     let drinking = document.querySelector('input[name="drinking"]:checked').value;
     console.log("Selected drinking:", drinking);
-    // } catch (error) {console.log("drinking")};
 
-    // try{
     if( document.querySelector('input[name="smoking"]:checked') == null)
         console.log("Poopy");
     else
     console.log("Pee");
     let smoking = document.querySelector('input[name="smoking"]:checked').value;
     console.log("Selected smoking:", smoking);
-    // } catch (error) {console.log("smoking")};
 
-    // try{
     if( document.querySelector('input[name="OvernightGuests"]:checked') == null)
         console.log("Poopy");
     else
     console.log("Pee");
     let overnightGuests = document.querySelector('input[name="OvernightGuests"]:checked').value;
     console.log("Selected overnight guests:", overnightGuests);
-    // } catch (error) {console.log("overnightGuests")};
 
 
     const request = new Request("http://localhost:3000/saveAnswers", {
@@ -104,6 +92,23 @@ function EditComponent(){
       .then(text => console.log("Server response: ", text))
       .catch((error) => console.error("Error: ", error));
     setSaveSuccess(true);
+
+    const request1 = new Request("http://localhost:3000/saveBio", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: 
+        JSON.stringify({
+          name: localStorage.getItem('username'),
+          Bio: bio
+        })
+    })
+    fetch(request1)
+      .then((response) => response.text())
+      .then(text => console.log("Server response: ", text))
+      .catch((error) => console.error("Error: ", error));
+    setSaveSuccess(true);
   }
 
   return (
@@ -117,6 +122,20 @@ function EditComponent(){
       {saveSuccess && <p className='notification'>Save successful!</p>}
       
       <div className="questionContainer">
+        <div className="question">
+          <h5>Bio</h5>
+          <br></br>
+          <div className="answer">
+            <label>
+              <input type="text" name="bio" placeholder="Enter your bio" />
+            </label>
+          </div>
+        </div>
+        <br></br>
+        <br></br>
+        <br></br>
+
+
         <div className="question">
           <h5>How many roommates do you want?</h5>
           <br></br>
@@ -243,8 +262,10 @@ function EditComponent(){
       </div>
 
       <button className="save-button" onClick={save}>Save</button>
+
+      {/* <button className="done-button" onClick={edit}>Done</button> */}
       {saveSuccess && <p className='notification'>Save successful!</p>}
-      <button className="done-button" onClick={edit}>Done</button>
+      <Link to="/editprofile" className = "CreateAccountButton" >Done</Link>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function swipePage() {
   window.location.href = "/swipepage";
@@ -55,10 +56,18 @@ function Dashboard() {
   return (
     <div>
       <div className="dashboard">
+
         <h1 className='welcome'>Welcome {localStorage.getItem('username')}!</h1>
+        {/* <button type="button" onClick={swipePage}>Start Swiping</button> */}
+        <Link className = "logoutButton" to="/SwipePage">Start Swiping</Link>
+
         {needsEditing && (
           <h1>Your profile is incomplete. Edit your profile!</h1>
         )}
+
+        {/* <button type="button" onClick={editProfile}>Edit Profile</button> */}
+        <Link className = "logoutButton" to="/editprofile">Edit Profile</Link>
+
         <div className='buttonContainer'>
           <div className='buttonColumn'>
             <button className="buttonDash" onClick={swipePage}>Start Swiping</button>
@@ -70,6 +79,7 @@ function Dashboard() {
             <button className="buttonDash" onClick={matching}>View Matches</button>
           </div>
         </div>
+
       </div>
     </div>
   );

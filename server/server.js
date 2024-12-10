@@ -31,6 +31,7 @@ app.use((req, res, next) => {
     console.log("Session ID:", req.sessionID);
     next();
 });
+*/
 app.post("/checkUsername", async (req, res) => {
     const username = req.body.name;
     console.log("Received email: " + req.body.name);
@@ -51,7 +52,7 @@ app.post("/checkUsername", async (req, res) => {
         console.error("Error retrieving users:", error);
         res.status(500).send("Internal Server Error");
     }
-});  */
+});  
 
 app.post("/saveAnswers", async (req, res) => {
     const username = req.body.name;
@@ -103,7 +104,7 @@ app.post( "/getAnswer", async (req, res) => {
         console.log("Query: " + query);
 
         const rows = await getUsers(query);
-        console.log("SingleAnswer: " + "test");
+        // console.log("SingleAnswer: " + "test");
         // console.log("SingleAnswer: " + JSOSN.stringify(rows));
         let answer = rows[0][`Q${Q}`];
         res.send(answer);
@@ -112,6 +113,42 @@ app.post( "/getAnswer", async (req, res) => {
         console.error("Error retrieving users:", error);
         res.status(500).send("Internal Server Error");
     }
+});
+
+
+app.post("/getBio", async (req, res) => {
+    const username = req.body.name;
+    try{
+        const query = `SELECT bio FROM LOGIN WHERE username = '${username}';`;
+        console.log("Query: " + query);
+
+        const rows = await getUsers(query);
+        // console.log("SingleBio: " + "test");
+        // console.log("SingleAnswer: " + JSOSN.stringify(rows));
+        let answer = rows[0].bio;
+        res.send(answer);
+    }
+    catch (error) {
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+
+app.post("/saveBio", async (req, res) => {
+    const username = req.body.name;
+    const bio = req.body.Bio;
+    try{
+        console.log("Received email: " + req.body.name + " Bio: " + req.body.bio);
+        const query = `UPDATE LOGIN SET bio = '${bio}' WHERE username = '${username}'`;
+        const rows = await getUsers(query);
+        res.send("Sent query");
+    }
+    catch (error) {
+        console.error("Error saving bio:", error);
+        res.status(500).send("Internal Server Error");
+    }
+
 });
 
 

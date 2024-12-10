@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import NavBar from '../NavBar'
 import "../styles.css"
+import { Link } from 'react-router-dom';
 
 // not sure why SignUpInfo exists, both components can probably become one
 function SignUpPage() {
@@ -147,6 +148,8 @@ function SignUpInfo() {
                 <button type="button" onClick={signUpPressed}>
                     Sign Up
                 </button>
+
+                {/* <Link to="/dashboard" className="CreateAccountButton" onClick={signUpPressed}>Sign Un</Link> */}
             </div>
         </div>
     );
