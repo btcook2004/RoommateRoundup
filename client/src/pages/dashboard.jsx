@@ -13,6 +13,10 @@ function checkLogIn() {
     window.location.href = "/";
   }
 }
+function matching() {
+  window.location.href = "/messagePage";
+
+}
 
 function Dashboard() {
   const [needsEditing, setNeedsEditing] = useState(false); // State to track if the profile needs editing
@@ -51,12 +55,21 @@ function Dashboard() {
   return (
     <div>
       <div className="dashboard">
-        <h1>Welcome {localStorage.getItem('username')}</h1>
-        <button type="button" onClick={swipePage}>Start Swiping</button>
+        <h1 className='welcome'>Welcome {localStorage.getItem('username')}!</h1>
         {needsEditing && (
-          <h1>Your profile is incomplete. Edit your profile here!</h1>
+          <h1>Your profile is incomplete. Edit your profile!</h1>
         )}
-        <button type="button" onClick={editProfile}>Edit Profile</button>
+        <div className='buttonContainer'>
+          <div className='buttonColumn'>
+            <button className="buttonDash" onClick={swipePage}>Start Swiping</button>
+          </div>
+          <div className='buttonColumn'>
+            <button className="buttonDash" onClick={editProfile}>Edit Profile</button>
+          </div>
+          <div className='buttonColumn'>
+            <button className="buttonDash" onClick={matching}>View Matches</button>
+          </div>
+        </div>
       </div>
     </div>
   );

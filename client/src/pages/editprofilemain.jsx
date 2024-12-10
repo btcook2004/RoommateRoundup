@@ -4,7 +4,7 @@ import EditComponent from './EditComponent'
 
 function EditProfileMain() {
     return(
-        <div>
+        <div className='backColor'>
             <NavBar></NavBar>
 
             <EditProfile/>
