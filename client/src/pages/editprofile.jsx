@@ -7,6 +7,7 @@ function edit() {
 
 function EditProfile(){
   
+  let [bio, setBio] = useState("null1");
   let [answer1, setAnswer1] = useState("null1");
   let [answer2, setAnswer2] = useState("null1");
   let [answer3, setAnswer3] = useState("null1");
@@ -14,6 +15,25 @@ function EditProfile(){
   let [answer5, setAnswer5] = useState("null1");
   let [answer6, setAnswer6] = useState("null1");
   let [answer7, setAnswer7] = useState("null1");
+
+  useEffect(() => {
+    const request = new Request("http://localhost:3000/getBio", {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: localStorage.getItem('username'),
+      })
+    });
+    fetch(request)
+      .then((response) => response.text())
+      .then((text) => {
+        setBio(text);
+        console.log("Bio: ", bio);
+      })
+      .catch((error) => console.error("Error: ", error));
+  }, []);
 
   useEffect(() => {
     const request = new Request("http://localhost:3000/getAnswer", {
@@ -169,8 +189,10 @@ function EditProfile(){
             />
           </div>
       </div>
-      <script></script>
+
       <div className="text-column">
+      <h6>Bio:</h6>
+      <h6 className='answer'>{bio}</h6>
       <h6>How many roommates do you want?</h6>
       <h6 className='answer'>{answer1}</h6>
       {/* <br></br> */}
@@ -195,7 +217,8 @@ function EditProfile(){
 
       </div>
     </div>
-    <button className="edit-button" onClick={edit}>Edit Profile</button>
+    {/* <button className="edit-button" onClick={edit}>Edit Profile</button> */}
+    <Link to="/editMode" className="CreateAccountButton">Edit Profile</Link>
     </div>
   );
 }
