@@ -10,7 +10,7 @@ function MessagePage()
     return (
         <div>
             <div>
-                <h1>Messages</h1>
+                <h1>Matches</h1>
             </div>
             <ul>
                 {animals.map((animal) => <ListItem key={animal} animal={animal} suffix={"Woo"}> </ListItem>)}

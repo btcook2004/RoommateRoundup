@@ -19,7 +19,7 @@ function NavBar()
                 <ul id = "navbar">
                     <li><a className="active"
                      href="/dashboard">Dashboard</a></li>
-                    <li><a href="/messagePage">Messages</a></li>
+                    <li><a href="/messagePage">Matches</a></li>
                     <li><a href="/swipepage">Swipe Page</a></li>
                     <li><a href="/editprofile">Edit Profile</a></li>
                 </ul>
