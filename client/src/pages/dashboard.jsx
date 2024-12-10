@@ -59,21 +59,21 @@ function Dashboard() {
 
         <h1 className='welcome'>Welcome {localStorage.getItem('username')}!</h1>
         {/* <button type="button" onClick={swipePage}>Start Swiping</button> */}
-        <Link className = "logoutButton" to="/SwipePage">Start Swiping</Link>
+        {/* <Link className = "logoutButton" to="/SwipePage">Start Swiping</Link> */}
 
         {needsEditing && (
           <h1>Your profile is incomplete. Edit your profile!</h1>
         )}
 
         {/* <button type="button" onClick={editProfile}>Edit Profile</button> */}
-        <Link className = "logoutButton" to="/editprofile">Edit Profile</Link>
+        {/* <Link className = "logoutButton" to="/editprofile">Edit Profile</Link> */}
 
         <div className='buttonContainer'>
           <div className='buttonColumn'>
             <Link className="buttonDash" to="/swipePage">Start Swiping</Link>
           </div>
           <div className='buttonColumn'>
-            <Link className="buttonDash" to="/editprofile">Edit Profile></Link>
+            <Link className="buttonDash" to="/editprofile">Edit Profile</Link>
           </div>
           <div className='buttonColumn'>
             <Link className="buttonDash" to="/messagePage">View Matches</Link>
