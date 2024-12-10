@@ -1,11 +1,18 @@
 import { Link } from 'react-router-dom'
 import NavBar from '../NavBar'
+import React, { useState } from 'react';
 function edit() {
   window.location.href = "/editprofile";
 }
 
 function EditComponent(){
+
+
+  let [saveSuccess, setSaveSuccess] = useState(false);
+
   function save() {
+
+
 
     // try{
     if( document.querySelector('input[name="roommates"]:checked') == null)
@@ -96,6 +103,7 @@ function EditComponent(){
       .then((response) => response.text())
       .then(text => console.log("Server response: ", text))
       .catch((error) => console.error("Error: ", error));
+    setSaveSuccess(true);
   }
 
   return (
@@ -106,6 +114,7 @@ function EditComponent(){
 
       <h1>Edit Mode</h1>
       <button className="save-button" onClick={save}>Save</button>
+      {saveSuccess && <p>Save successful!</p>}
       
       <div className="questionContainer">
         <div className="question">
@@ -234,6 +243,7 @@ function EditComponent(){
       </div>
 
       <button className="save-button" onClick={save}>Save</button>
+      {saveSuccess && <p>Save successful!</p>}
       <button className="done-button" onClick={edit}>Done</button>
     </div>
   );
