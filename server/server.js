@@ -159,7 +159,7 @@ app.post("/signup", (req, res) =>
     const bio = req.body.bio;
     const contact = req.body.contact;
     console.log("Received email: " + req.body.name + " and password: " + req.body.password);
-    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}', '${contact});`);
+    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}', '${contact}');`);
     runQuery(`INSERT INTO QUESTIONS (username, Q1, Q2, Q3, Q4, Q5, Q6, Q7) VALUES ('${username}', 'null', 'null', 'null', 'null', 'null', 'null', 'null');`);
     res.send("Successfully received login details");
 });
