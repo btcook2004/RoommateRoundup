@@ -32,7 +32,7 @@ function IndexPage()
               </li>
             </ul>
           </div>
-          <h1>Match Today!!</h1>
+          <h1 className="indexText">Match Today!!</h1>
           {/* <button type="button" onClick={linkToSignUp}>Create Account</button> */}
           <Link to="/signup" className="CreateAccountButton" >Create Account</Link>
       </div>
