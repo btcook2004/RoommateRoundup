@@ -93,6 +93,7 @@ function SignUpInfo() {
                 <label htmlFor="name">Email or Phone:</label>
                 <br />
                 <input 
+                    className= "pass"
                     type="text"
                     id="contact"
                     name="contact"
