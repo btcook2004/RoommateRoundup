@@ -9,7 +9,7 @@ conn.connect((err) =>
         console.log("An error has occured...")
     }
     conn.query("DROP TABLE IF EXISTS LOGIN;");
-    let sql = "CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), bio VARCHAR(255), PRIMARY KEY(username))"
+    let sql = "CREATE TABLE LOGIN (username VARCHAR(255), password VARCHAR(255), bio VARCHAR(255), contact VARCHAR(255), PRIMARY KEY(username))"
     conn.query(sql, (queryErr, queryResults) =>
     {
         if (queryErr)
