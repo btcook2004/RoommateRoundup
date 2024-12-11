@@ -15,6 +15,7 @@ function SignUpPage() {
 function SignUpInfo() {
     const [name, setName] = useState('');
     const [password, setPassword] = useState('');
+    const [contact, setContact] = useState('');
     const bio = "TempBio";
 
     function signUpPressed() {
@@ -26,7 +27,6 @@ function SignUpInfo() {
             },
             body: JSON.stringify({ name: name }),
         });
-
         fetch(request1)
             .then(response => response.text())
             .then(text => {
@@ -35,41 +35,12 @@ function SignUpInfo() {
                 throw new Error("Username already exists");
             } else {
 
-            // fetch('http://localhost:3000/saveAnswers', {
-            //     method: 'POST',
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //     },
-            //     body: 
-            //       JSON.stringify({
-            //         name: localStorage.getItem('username'),
-            //         Q1: "null",
-            //         Q2: "null",
-            //         Q3: "null",
-            //         Q4: "null",
-            //         Q5: "null",
-            //         Q6: "null",
-            //         Q7: "null"
-            //       })
-            //   })
-            //     .then(response => response.json())
-            //     .then(data => {
-            //       console.log('Success:');
-            //     })
-            //     .catch((error) => {
-            //       console.error('Error: here');
-            //     });
-
-
-
-
-
                 const request = new Request("http://localhost:3000/signup", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ name, password, bio}),
+                body: JSON.stringify({ name, password, bio, contact}),
                 });
 
                 fetch(request)
@@ -81,37 +52,9 @@ function SignUpInfo() {
                 })
                 .catch(error => console.error('Error:', error));
 
-
-
-
             }
             })
             .catch(error => console.error('Error:', error));
-
-            // fetch('http://localhost:3000/saveAnswers', {
-            //     method: 'POST',
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //     },
-            //     body: 
-            //       JSON.stringify({
-            //         name: localStorage.getItem('username'),
-            //         Q1: "null",
-            //         Q2: "null",
-            //         Q3: "null",
-            //         Q4: "null",
-            //         Q5: "null",
-            //         Q6: "null",
-            //         Q7: "null"
-            //       })
-            //   })
-            //     .then(response => response.json())
-            //     .then(data => {
-            //       console.log('Success:');
-            //     })
-            //     .catch((error) => {
-            //       console.error('Error: here');
-            //     });
 
     }
 
@@ -142,6 +85,20 @@ function SignUpInfo() {
                     onChange={(e) => setPassword(e.target.value)}
                     required
                 />
+                <br />
+                <br />
+
+                <label htmlFor="name">Email or Phone:</label>
+                <br />
+                <input 
+                    type="text"
+                    id="contact"
+                    name="contact"
+                    value={contact}
+                    onChange={(e) => setContact(e.target.value)}
+                    required
+                />
+
                 <br />
                 <br />
 

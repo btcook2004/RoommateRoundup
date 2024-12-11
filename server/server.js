@@ -157,49 +157,15 @@ app.post("/signup", (req, res) =>
     const username = req.body.name;
     const password = req.body.password;
     const bio = req.body.bio;
+    const contact = req.body.contact;
     console.log("Received email: " + req.body.name + " and password: " + req.body.password);
-    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}');`);
+    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}', '${contact});`);
     runQuery(`INSERT INTO QUESTIONS (username, Q1, Q2, Q3, Q4, Q5, Q6, Q7) VALUES ('${username}', 'null', 'null', 'null', 'null', 'null', 'null', 'null');`);
     res.send("Successfully received login details");
 });
 
 
 app.post("/signIn", async (req, res) => {
-   /* const username = req.body.name;
-    const password = req.body.password;
-    console.log("Received email: " + username + " and password: " + password);
-
-    try {
-        const query = `SELECT * FROM LOGIN WHERE username = '${username}' AND password = '${password}';`;
-        console.log("Query: " + query);
-
-        const rows = await getUsers(query);
-        console.log("HELLO: " + JSON.stringify(rows));*/
-
-       // if (rows.length > 0) {
-            //const user = { username: username };
-           // req.session.user = user;  // Save user in session
-            
-           // console.log("Session user set:", req.session.user);  // Log to confirm session is set
-
-            // Force session save and then respond
-           /* req.session.save((err) => {
-                if (err) {
-                    console.error("Error saving session:", err);
-                    return res.status(500).send("Internal Server Error");
-                }
-
-                // Ensure session is saved before responding
-                console.log("Session saved:", req.session.user);
-                res.send("Success");
-            });
-        } else {
-            res.send("Failure");
-        }
-    } catch (error) {
-        console.error("Error retrieving users:", error);
-        res.status(500).send("Internal Server Error");
-    } */
 
 
         const username = req.body.name;
