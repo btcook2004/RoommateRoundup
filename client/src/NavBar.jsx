@@ -18,17 +18,17 @@ function NavBar()
                 <img src={logo} alt={"a great logo"} className={"logo"}/>
             </Link>
 
-            <div>
+            <div className='navBar'>
                 <ul id = "navbar">
                     {/* <li><a className="active"
                      href="/dashboard">Dashboard</a></li> */}
-                    <li><Link className="navButton" to="/dashboard">Dashboard</Link></li>
+                    <li><Link className="navButton" to="/dashboard" style={{fontSize: '20px'}}>Dashboard</Link></li>
                     {/* <li><a href="/messagePage">Matches</a></li> */}
-                    <li><Link className="navButton" to="/messagePage">Matches</Link></li>
+                    <li><Link className="navButton" to="/messagePage" style={{fontSize: '20px'}}>Matches</Link></li>
                     {/* <li><a href="/swipepage">Swipe Page</a></li> */}
-                    <li><Link className="navButton" to="/swipepage">Swipe</Link></li>
+                    <li><Link className="navButton" to="/swipepage" style={{fontSize: '20px'}}>Swipe</Link></li>
                     {/* <li><a href="/editprofile">Edit Profile</a></li> */}
-                    <li><Link className="navButton" to="/editprofile">Profile</Link></li>
+                    <li><Link className="navButton" to="/editprofile" style={{fontSize: '20px'}}>Profile</Link></li>
                 </ul>
             </div>
 {/*             
