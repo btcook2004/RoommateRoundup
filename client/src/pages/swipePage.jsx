@@ -13,7 +13,7 @@ function SwipePage() {
     // Fetch users and set state
     useEffect(() => {
         const currentUserUsername = localStorage.getItem("username");
-        fetch("http://localhost:3000/users") // Fetch users from the backend
+        /*fetch("http://localhost:3000/unswipedUsers") // Fetch users from the backend
             .then((response) => response.json())
             .then((data) => {
                 const filteredUsers = data.filter(user => user.id !== currentUserUsername);
@@ -23,7 +23,24 @@ function SwipePage() {
                     fetchQuestions(filteredUsers[0].id); // Fetch questions for the first user in the list
                 }
             })
-            .catch((error) => console.error("Error fetching users:", error));
+            .catch((error) => console.error("Error fetching users:", error));*/
+
+        const happyRequest = new Request(`http://localhost:3000/unswipedUsers?username=${currentUserUsername}`, {
+            method: 'GET',
+        
+         })
+        fetch(happyRequest)
+        .then((response) => response.json())
+        .then((data) => {
+            const filteredUsers = data.filter(user => user.id !== currentUserUsername);
+            console.log("Filtered users:", filteredUsers);
+            setUsers(filteredUsers);
+            if (filteredUsers.length > 0) {
+                fetchQuestions(filteredUsers[0].id); // Fetch questions for the first user in the list
+            }
+            }
+        )
+        .catch((error) => console.error("Error: ", error));
 
         fetch("http://localhost:3000/getQuestionAnswers", {
             method: "POST",
@@ -121,6 +138,11 @@ function SwipePage() {
             console.log("No more users to swipe on!");
             setStatus(false); 
         }
+    }
+
+    const questionTitles = 
+    {
+        Q1: "This is a cool question",
     }
 
     const currentUser = users[currentIndex];

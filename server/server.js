@@ -157,8 +157,9 @@ app.post("/signup", (req, res) =>
     const username = req.body.name;
     const password = req.body.password;
     const bio = req.body.bio;
+    const contact = req.body.contact;
     console.log("Received email: " + req.body.name + " and password: " + req.body.password);
-    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}');`);
+    runQuery(`INSERT INTO LOGIN VALUES('${username}', '${password}', '${bio}', '${contact}');`);
     runQuery(`INSERT INTO QUESTIONS (username, Q1, Q2, Q3, Q4, Q5, Q6, Q7) VALUES ('${username}', 'null', 'null', 'null', 'null', 'null', 'null', 'null');`);
     res.send("Successfully received login details");
 });
@@ -255,6 +256,33 @@ app.get("/users", async (req, res) => { //this is async btw
             id: row.username, //sends id to (username) to frontend
             password: row.password, //samesies with password
             bio: row.bio,
+
+        }));
+
+        res.json(users); //users array sent!
+    } catch (error) { //if that whole thing does not work
+
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.get("/unswipedUsers", async (req, res) => { //this is async btw
+
+    try {
+        const username = req.query.username;
+        const query = `SELECT * FROM LOGIN WHERE USERNAME NOT IN (SELECT second_user FROM SWIPES WHERE first_user = '${username}');`
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+        console.log(rows)
+        //await waits for promise to resolve
+        //map those guys or whatever to the user array
+        users = rows.map(row => ({
+
+            id: row.username, //sends id to (username) to frontend
+            password: row.password, //samesies with password
+            bio: row.bio,
+
         }));
 
         res.json(users); //users array sent!
