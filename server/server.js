@@ -310,24 +310,35 @@ app.post("/swipePage", async (req, res) => {
 });
 
 
-/*app.get("/matches/:userId", async (req, res) => {
-    const userId = req.params.userId;
-
-    if (!userId) {
-        return res.status(400).send("User ID is required");
-    }
+app.post("/matches", async (req, res) => {
+    const userId = req.body.name;
+    let matches = [];
 
     try {
         const query = `
-            SELECT match_id, username, matched_username 
+            SELECT username, matched_username
             FROM MATCHES 
             WHERE username = '${userId}' OR matched_username = '${userId}';
         `;
-        const matches = await getUsers(query); //i think this may cause issuess
 
-        res.json(matches); // Return the list of matches
+        console.log("username: " + userId);
+        const rows = await getUsers(query); 
+        console.log(rows);
+
+        matches = rows.map(row => {
+            //map for other person in the match
+            const otherPerson = row.username === userId ? row.matched_username : row.username;
+
+            return {
+                person: userId,          //current user
+                matchedWith: otherPerson //other person
+            };
+        });
+
+        res.json(matches);
     } catch (error) {
         console.error("Error retrieving matches:", error);
         res.status(500).send("Internal Server Error");
     }
-}); */
+});
+
