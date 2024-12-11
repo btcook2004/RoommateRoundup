@@ -127,7 +127,7 @@ function EditComponent(){
           <br></br>
           <div className="answer">
             <label>
-              <input type="text" name="bio" placeholder="Enter your bio" />
+              <input className="pass"type="text" name="bio" placeholder="Enter your bio" />
             </label>
           </div>
         </div>
@@ -177,7 +177,7 @@ function EditComponent(){
           <br></br>
           <div className="answer">
             <label>
-              <input type="text" name="allergies" placeholder="Enter any allergies" />
+              <input className="pass" type="text" name="allergies" placeholder="Enter any allergies" />
             </label>
           </div>  
         </div>
