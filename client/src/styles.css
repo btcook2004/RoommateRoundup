@@ -5,7 +5,7 @@
 
 .CreateAccountButton{
     background-color: #04AA6D;
-    color: white;
+    color:  #fff1f1;
     padding: 14px 20px;
     margin: 8px 8px;
     border: none;
@@ -18,14 +18,15 @@
     margin-left: auto;
     margin-right: auto;
     text-decoration: none;
+
 }
 .navButton{
-    color: #dedede;
+    color:  #fff1f1;
 }
 
 .logoutButton{
     background-color: #04AA6D;
-    color: white;
+    color:  #fff1f1;
     padding: 14px 20px;
     margin: 8px 8px;
     border: none;
@@ -47,14 +48,16 @@
     padding-left: 3px;
 }
 p.answer{
+    background-color:  #fff1f1;
+   border-color: #1b2430;
+   border-style: solid;
+   border-width: 1px;
     border-radius: 5px;
     padding: 5px;
-    border-color: #40464f76;
     border-width: 2px;
     text-align: center;
     font-weight: lighter; 
     width: 300px;
-    background-color: white ;
     min-height:40px;
 
 }
@@ -95,7 +98,7 @@ p.answer{
 }
 .edit-button{
     background-color: #04AA6D;
-    color: white;
+    color:  #fff1f1;
     padding: 14px 20px;
     margin: 8px 8px;
     opacity: 0.9;
@@ -107,18 +110,21 @@ p.answer{
     margin-left: auto;
     margin-right: auto;
     width: 8%;
+    
 }
 .save-button{
     display: block;
     margin: 20px auto;
     text-align: center;
     min-width: 15vh;
+    color: #fff1f1;
 }
 .done-button{
     display: block;
     margin: 20px auto;
     text-align: center;    
     min-width: 15vh;
+    color: #fff1f1;
 }
 .image-placeholder{
     display: grid;
@@ -130,7 +136,7 @@ p.answer{
     background-color: #b7b7b7;
     width: 200px;
     border-radius: 10px;
-    margin: 10px 10px;
+    margin-top: 8%;
 }
 .columnsContainer
 {
@@ -207,6 +213,7 @@ h6{
     text-align: center;
     font-size: 18px;
     font-weight: 570;
+    margin-bottom: 2%;
 }
 
 p{
@@ -257,7 +264,7 @@ nav{
       text-decoration: none;
       font-size: 1rem;
       font-weight: 600;
-      colo: #dedede;
+      color: #fff1f1;
       font-family: "Futura", sans-serif;
       transition: 0.3s ease-in-out;
 }
@@ -323,13 +330,17 @@ input[type=text], input[type=password]
     border: none;
     background: #f1f1f1;*/
 }
-
+input.pass{
+   background-color:  #fff1f1;
+   border-color: #1b2430;
+   border-style: solid;
+   border-width: 1px;
+}
 input[type=text]:focus, input[type=password]:focus
 {
     background-color: #ddd;
     outline: none;
 }
-
 hr
 {
     border: 1px solid #f1f1f1;
@@ -337,7 +348,7 @@ hr
 }
 button {
     background-color: #04AA6D;
-    color: white;
+    color:  #fff1f1;
     padding: 14px 20px;
     margin: 8px 8px;
     border: none;
@@ -364,13 +375,18 @@ button {
     white-space: pre-wrap;
     border: 1px solid #ccc;
     padding: 10px;
+    margin-top: 8%;
     border-radius: 4px;
-    background-color:  #f2f2f2;
     max-height: 300px;
     overflow-y: auto;
     color: #1b2430;
     font-family: "Futura", sans-serif;
     align-items: center;
+
+    background-color:  #fff1f1;
+   border-color: #1b2430;
+   border-style: solid;
+   border-width: 1px;
 
 }
 .noSwipe{
@@ -399,7 +415,7 @@ button {
     max-height: 610px; /* Set a max height for the scrollable card */
     overflow-y: auto; /* Enables vertical scrolling */
     padding: 10px;
-    background-color: #f2f2f2;
+    background-color: #fff1f1;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -482,7 +498,7 @@ button {
     font-size: 60px;
 }
 .backColor{
-    background-color: #0f9f6a20; 
+    background-color: #fff1f1; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;

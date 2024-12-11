@@ -45,14 +45,14 @@ function SignInPage() {
 
   return(
 
-    <div>
+    <div className='backColor'>
 
       <div style={{ textAlign: 'center' }}>
         <h1>Sign In</h1>
         <div>
             <label htmlFor="name">Name:  </label>
             <br />
-            <input 
+            <input className="pass"
                 type="text"
                 id="name"
                 name="name"
@@ -64,7 +64,7 @@ function SignInPage() {
             <br />
             <label htmlFor="password">Password:  </label>
             <br />
-            <input
+            <input className="pass"
                 type="password"
                 id="password"
                 name="password"

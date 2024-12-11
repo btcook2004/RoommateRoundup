@@ -60,12 +60,13 @@ function SignUpInfo() {
 
 
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div className="backColor" style={{ textAlign: 'center' }}>
             <h1>Sign Up</h1>
             <div>
                 <label htmlFor="name">Name:  </label>
                 <br />
-                <input 
+                <input
+                    className='pass' 
                     type="text"
                     id="name"
                     name="name"
@@ -78,6 +79,7 @@ function SignUpInfo() {
                 <label htmlFor="password">Password:  </label>
                 <br />
                 <input
+                    className="pass"
                     type="password"
                     id="password"
                     name="password"
