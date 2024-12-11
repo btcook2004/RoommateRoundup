@@ -55,6 +55,8 @@ p.answer{
     font-weight: lighter; 
     width: 300px;
     background-color: white ;
+    min-height:40px;
+
 }
 .answer{
     font-weight: lighter;
@@ -211,6 +213,10 @@ p{
     color: #1b2430;
     font-family: "Futura", sans-serif;
 }
+.indexText{
+    font-size: 50px;
+    margin-bottom: 4%;
+}
 .notification{
     text-align: center;
     color: #0cad5b;
@@ -288,16 +294,14 @@ a
 }
 .dashboard
 {
-    background-color:#dedede; 
-
     display: flex;
-  flex-direction: column;
-  align-items: center; /* Center items horizontally */
-  justify-content: center; /* Center items vertically */
-  min-height: 100vh; /* Ensure full-screen height for vertical centering */
-  padding: 20px;
-  gap: 15px; /* Adds space between each item */
-  text-align: center
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Center items vertically */
+    min-height: 100vh; /* Ensure full-screen height for vertical centering */
+    padding: 20px;
+    gap: 15px; /* Adds space between each item */
+    text-align: center
 }
 /* sign-up styles below */
 
@@ -374,13 +378,12 @@ button {
     text-align: center;
     font-size: 25px;
     color:#1b2430;
-    text-decoration: none;
     margin-top: 18%; 
 }
 .questionsContainer {
     margin-top: 20px;
     padding: 10px;
-    background-color: #9bd5c0;
+    background-color: #b7b7b7;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     width: 350px;
@@ -479,7 +482,7 @@ button {
     font-size: 60px;
 }
 .backColor{
-    background-color:#dedede; 
+    background-color: #0f9f6a20; 
     display: flex;
     flex-direction: column;
     min-height: 100vh;

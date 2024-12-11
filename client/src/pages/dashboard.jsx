@@ -54,7 +54,7 @@ function Dashboard() {
   }, []);
 
   return (
-    <div>
+    <div className= "backColor">
       <div className="dashboard">
 
         <h1 className='welcome'>Welcome {localStorage.getItem('username')}!</h1>
