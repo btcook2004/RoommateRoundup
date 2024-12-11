@@ -188,37 +188,39 @@ function EditProfile(){
               alt={`${localStorage.id}'s profile`}
             />
           </div>
+          <br></br>
+          <h6>Bio:</h6>
+          <br></br>
+      <p className='answer'>{bio}</p>
       </div>
 
-      <div className="text-column">
-      <h6>Bio:</h6>
-      <h6 className='answer'>{bio}</h6>
+      <div className="textcolumn">
       <h6>How many roommates do you want?</h6>
-      <h6 className='answer'>{answer1}</h6>
+      <p className='answer'>{answer1}</p>
       {/* <br></br> */}
       <h6>Are you a morning or night person?</h6>
-      <h6 className='answer'>{answer2}</h6>
+      <p className="answer">{answer2}</p>
       {/* <br></br> */}
       <h6>Allergies?</h6>
-      <h6 className='answer'>{answer3}</h6>
+      <p className='answer'>{answer3}</p>
       {/* <br></br> */}
       <h6>What is your cleanliness level?</h6>
-      <h6 className='answer'>{answer4}</h6>
+      <p className='answer'>{answer4}</p>
       {/* <br></br> */}
       <h6>Are you okay with drinking?</h6>
-      <h6 className='answer'>{answer5}</h6>
+      <p className='answer'>{answer5}</p>
       {/* <br></br> */}
       <h6>Are you okay with smoking?</h6>
-      <h6 className='answer'>{answer6}</h6>
+      <p className='answer'>{answer6}</p>
       {/* <br></br> */}
       <h6>Are you okay with overnight guests?</h6>
-      <h6 className='answer'>{answer7}</h6>
+      <p className='answer'>{answer7}</p>
       <br></br>
 
       </div>
     </div>
     {/* <button className="edit-button" onClick={edit}>Edit Profile</button> */}
-    <Link to="/editMode" className="CreateAccountButton">Edit Profile</Link>
+    <Link to="/editMode" className="edit-button">Edit Profile</Link>
     </div>
   );
 }

@@ -123,7 +123,7 @@ function EditComponent(){
       
       <div className="questionContainer">
         <div className="question">
-          <h5>Bio</h5>
+          <h5>Bio:</h5>
           <br></br>
           <div className="answer">
             <label>
@@ -131,7 +131,6 @@ function EditComponent(){
             </label>
           </div>
         </div>
-        <br></br>
         <br></br>
         <br></br>
 
@@ -154,7 +153,6 @@ function EditComponent(){
             </label>
           </div>
         </div>
-        <br></br>
         <br></br>
         <br></br>
 

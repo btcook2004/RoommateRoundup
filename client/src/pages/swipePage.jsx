@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link } from 'react-router-dom';
 import NavBar from '../NavBar';
 import Swipe from './swipe';
 
@@ -196,7 +197,11 @@ function SwipePage() {
                     
                 </>
             ) : (
-                <h4 className="noSwipe">No more users to swipe on</h4>
+                <div>
+                <h4 className="noSwipe">No more users to swipe on.</h4>
+                <h4><Link className="noSwipe" to="/messagePage">Click to View Matches</Link></h4>
+                </div>
+
             )}
         </div>
     );
