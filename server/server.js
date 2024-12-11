@@ -221,6 +221,33 @@ app.get("/users", async (req, res) => { //this is async btw
             id: row.username, //sends id to (username) to frontend
             password: row.password, //samesies with password
             bio: row.bio,
+
+        }));
+
+        res.json(users); //users array sent!
+    } catch (error) { //if that whole thing does not work
+
+        console.error("Error retrieving users:", error);
+        res.status(500).send("Internal Server Error");
+    }
+});
+
+app.get("/unswipedUsers", async (req, res) => { //this is async btw
+
+    try {
+        const username = req.query.username;
+        const query = `SELECT * FROM LOGIN WHERE USERNAME NOT IN (SELECT second_user FROM SWIPES WHERE first_user = '${username}');`
+
+        const rows = await getUsers(query); //goes to getUsers function in other file
+        console.log(rows)
+        //await waits for promise to resolve
+        //map those guys or whatever to the user array
+        users = rows.map(row => ({
+
+            id: row.username, //sends id to (username) to frontend
+            password: row.password, //samesies with password
+            bio: row.bio,
+
         }));
 
         res.json(users); //users array sent!
