@@ -341,3 +341,8 @@ app.post("/matches", async (req, res) => {
     }
 });
 
+app.get('/messages/:user', (req, res) =>{
+    const { user } = req.params;
+    const query = SELECT * FROM MESSAGES WHERE
+})
+

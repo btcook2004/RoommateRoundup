@@ -1,7 +1,16 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 function ListItem(props) {
-    return <li>{props.animal || props.matchUser}</li>;
+    let matchUser = props.matchUser;
+    return (
+        <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
+            <h5 style={{ margin: "0 10px 0 0" }}>{matchUser}</h5>
+            <Link to={`/messages/${matchUser}`} style={{ textDecoration: "none", color: "blue" }}>
+                Message
+            </Link>
+        </div>
+    );
 }
 
 function MessagePage() {
@@ -25,7 +34,7 @@ function MessagePage() {
                 console.error("Error fetching matches:", error);
             }
         }
-        
+
         fetchMatches();
     }, [userId]); */
     /*const request1 = new Request("http://localhost:3000/matches", {
@@ -33,7 +42,7 @@ function MessagePage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: 
+        body:
           JSON.stringify({
             name: localStorage.getItem('username'),
 
@@ -45,13 +54,13 @@ function MessagePage() {
         .catch((error) => console.error("Error: ", error)); */
 
         useEffect(() =>  {
-            const currentUserUsername = localStorage.getItem("username");
+            // const currentUserUsername = localStorage.getItem("username");
             const request1 = new Request("http://localhost:3000/matches", {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
                 },
-                body: 
+                body:
                   JSON.stringify({
                     name: localStorage.getItem('username'),
                   })
@@ -62,13 +71,11 @@ function MessagePage() {
                     // const filteredUsers = data.filter(user => user.person !== currentUserUsername);
                     console.log("Filtered users:", data);
                     setMatches(data);
-                   //setMatches(filteredUsers); 
-    
+                   //setMatches(filteredUsers);
+
                 })
                 .catch((error) => console.error("Error fetching matches:", error));
             }, []);
-
-
 
             return (
                 <div className="backColor">
@@ -76,10 +83,10 @@ function MessagePage() {
                         <h1>Matches</h1>
                     </div>
                     <ul>
-                        {matches.map((match) => (
-                            <ListItem
-                               // key={match.match_id}
-                                matchUser={match.matchedWith} />
+                        {matches.map((match, index) => (
+                            <li key={index}>
+                                <ListItem matchUser={match.matchedWith} />
+                            </li>
                         ))}
                     </ul>
                 </div>

@@ -20,7 +20,7 @@ conn.connect((err) =>
     conn.query("DROP TABLE IF EXISTS MATCHES;")
     conn.query("CREATE TABLE MATCHES(match_id CHAR(36), username VARCHAR(255), matched_username VARCHAR(255), PRIMARY KEY(match_id));")
     conn.query("DROP TABLE IF EXISTS MESSAGES;")
-    conn.query("CREATE TABLE MESSAGES(message_id CHAR(36), match_id CHAR(36), message_content VARCHAR(512), sender_id INT, date DATE, PRIMARY KEY(message_id));");
+    conn.query("CREATE TABLE MESSAGES(id INT AUTO_INCREMENT, message_content VARCHAR(512), sender_username VARCHAR(255), receiver_username VARCHAR(255), date TIMESTAMP, PRIMARY KEY(id));");
     conn.query("DROP TABLE IF EXISTS PROFILE");
     conn.query("CREATE TABLE PROFILE(username INT, picture_path VARCHAR(256), answers VARCHAR(256), display_name VARCHAR(256), PRIMARY KEY(username))");
     conn.query("DROP TABLE IF EXISTS SWIPES;")
