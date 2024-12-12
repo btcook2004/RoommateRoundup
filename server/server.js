@@ -295,7 +295,6 @@ app.post("/swipePage", async (req, res) => {
                 `;
                 const matchId = generateUniqueId();
                 await runOtherQuery(matchQuery, [matchId, swiper, userId]);
-
                 console.log("Match successfully created!");
                 return res.status(200).send("Match created!");
             }
