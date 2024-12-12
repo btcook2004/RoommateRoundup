@@ -1,4 +1,5 @@
 const express = require("express");
+const connCreator = require("./database/createconnection")
 const cors = require("cors");
 const app = express();
 app.use(cors());
@@ -95,6 +96,24 @@ app.post( "/getQuestionAnswers", async (req, res) => {
         res.status(500).send("Internal Server Error");
     }
 });
+
+
+app.post("/getContactInfo", async (req, res) => {
+    const username = req.body.name;
+    console.log("Recieved username: " + req.body.name);
+    try{
+        const query = `SELECT contact FROM LOGIN WHERE username = '${username}';`
+        console.log("Query: " + query);
+        const rows = await getUsers(query);
+        let answer = rows[0].contact;
+        res.send(answer);
+    }
+    catch (error) {
+        console.error("Error retrieving contact info: ", error);
+        res.status(500).send("Internal Server Error");
+    }
+})
+
 
 app.post( "/getAnswer", async (req, res) => {
     const username = req.body.name;
@@ -310,6 +329,7 @@ app.post("/swipePage", async (req, res) => {
 });
 
 
+
 app.post("/matches", async (req, res) => {
     const userId = req.body.name;
     let matches = [];
@@ -321,17 +341,42 @@ app.post("/matches", async (req, res) => {
             WHERE username = '${userId}' OR matched_username = '${userId}';
         `;
 
+        conn = connCreator();
+        conn.connect((err) => {
+
+        })
         console.log("username: " + userId);
         const rows = await getUsers(query); 
         console.log(rows);
 
+
+
         matches = rows.map(row => {
             //map for other person in the match
             const otherPerson = row.username === userId ? row.matched_username : row.username;
+            conn = connCreator();
+            let contact;
 
+            contact_query = `SELECT DISTINCT CONTACT FROM LOGIN WHERE username = '${otherPerson}'`
+
+            contact_row = getUsers(contact_query)
+            conn.connect((err) => {
+                let query = `SELECT DISTINCT CONTACT FROM LOGIN WHERE username = '${otherPerson}'`;
+                conn.query(query, (error, results) => {
+                    if (error)
+                    {
+                        console.log(error);
+                    }
+                    else
+                    {
+                        contact = results[0]['CONTACT'];
+                        console.log(contact);
+                    }
+                })
+            })
             return {
                 person: userId,          //current user
-                matchedWith: otherPerson //other person
+                matchedWith: otherPerson, //other person
             };
         });
 

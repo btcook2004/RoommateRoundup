@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 function ListItem(props) {
-    return <h5>{props.matchUser}{props.matchUser}</h5>;
+    return <h4>{props.animal || props.matchUser}</h4>;
 }
-
 
 function MessagePage() {
     const [matches, setMatches] = useState([]);
@@ -80,8 +79,8 @@ function MessagePage() {
                         {matches.map((match) => (
                             <ListItem
                                // key={match.match_id}
-                                matchUser={match.matchedWith}
-                            />
+                                matchUser={match.matchedWith} />
+
                         ))}
                     </ul>
                 </div>
