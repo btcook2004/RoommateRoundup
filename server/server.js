@@ -3,6 +3,7 @@ const cors = require("cors");
 const app = express();
 app.use(cors());
 app.use(express.json());
+const connCreator = require("./database/createconnection")
 const { runQuery, getUsers, runOtherQuery, generateUniqueId } = require("./database/database-api");
 //const runQuery = require("./database/database-api");
 //const getUsers = require("./database/database-api"); //this is new to get users
@@ -341,8 +342,42 @@ app.post("/matches", async (req, res) => {
     }
 });
 
-app.get('/messages/:user', (req, res) =>{
-    const { user } = req.params;
-    const query = SELECT * FROM MESSAGES WHERE
-})
+app.post('/messages', (req, res) => {
+    const { currentUser, matchUser } = req.body;
 
+    let conn = connCreator()
+
+    // actually did the query the proper way without letting sql injections happen :)
+    const sql = `
+        SELECT * FROM MESSAGES 
+        WHERE (sender_username = ? AND receiver_username = ?) 
+           OR (sender_username = ? AND receiver_username = ?)
+        ORDER BY date ASC
+    `;
+
+    conn.query(sql, [currentUser, matchUser, matchUser, currentUser], (err, results) => {
+        if (err) {
+            console.error("Error fetching messages:", err);
+        }
+        res.json(results);
+    });
+});
+
+app.post('/send', (req, res) => {
+    console.log(req.body)
+    const { messageContent, senderUsername, receiverUsername } = req.body;
+    let conn = connCreator()
+
+    // actually did the query the proper way without letting sql injections happen :)
+    const sql = `
+        INSERT INTO MESSAGES (message_content, sender_username, receiver_username) 
+        VALUES (?, ?, ?)
+    `;
+
+    conn.query(sql, [messageContent, senderUsername, receiverUsername], (err, result) => {
+        if (err) {
+            console.error("Error sending message:", err);
+        }
+        res.status(201).send("message sent");
+    });
+});
