@@ -12,6 +12,7 @@ import MainDashboard from './pages/maindashboard';
 import EditProfileMain from './pages/editprofilemain';
 import SignInPage from './pages/SignIn';
 import EditComponent from './pages/EditComponent';
+import ChatPage from './pages/chatpage.jsx'
 
 const router = createBrowserRouter([
     {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
       path: "/editMode",
       element: <EditComponent/>
     },
+    {
+        path:"/messages/:matchUser",
+        element: <ChatPage />
+    }
 
   ]);
 createRoot(document.getElementById('root')).render(
