@@ -237,7 +237,7 @@ app.get("/unswipedUsers", async (req, res) => { //this is async btw
 
     try {
         const username = req.query.username;
-        const query = `SELECT * FROM LOGIN WHERE USERNAME NOT IN (SELECT second_user FROM SWIPES WHERE first_user = '${username}');`
+        const query = `SELECT * FROM LOGIN WHERE USERNAME NOT IN (SELECT first_user FROM SWIPES WHERE first_user = '${username}');`
 
         const rows = await getUsers(query); //goes to getUsers function in other file
         console.log(rows)
