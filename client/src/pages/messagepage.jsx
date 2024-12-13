@@ -3,12 +3,12 @@ import { Link } from "react-router-dom";
 
 function ListItem({ matchUser, currentUser }) {
     return (
-        <div style={{ display: "flex", alignItems: "center", marginBottom: "10px" }}>
-            <h5 style={{ margin: "0 10px 0 20px" }}>{matchUser}</h5>
+        <div style={{display: "flex", alignItems: "center", marginBottom: "10px"}}>
+            <h5 style={{margin: "0 10px 0 0"}}>{matchUser}</h5>
             <Link
                 to={`/messages/${matchUser}`} // URL path
-                state={{ currentUser, matchUser }} // State object
-                style={{ textDecoration: "none", color: "blue" }}
+                state={{currentUser, matchUser}} // State object
+                style={{textDecoration: "none", color: "blue"}}
             >
                 Message
             </Link>

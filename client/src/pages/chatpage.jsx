@@ -67,22 +67,22 @@ function ChatPage() {
     };
 
     return (
-        <div className="backColor">
+        <div>
             <h1>Chat with {matchUser || "Unknown User"}</h1>
-            <div style={{ border: "1px solid #1b2430", padding: "10px", height: "730px", overflowY: "scroll" }}>
+            <div style={{border: "1px solid #ccc", padding: "10px", maxHeight: "300px", overflowY: "scroll"}}>
                 {messages.map((msg, index) => (
-                    <p key={index} style={{ textAlign: msg.sender_username === currentUser ? "right" : "left" }}>
+                    <p key={index} style={{textAlign: msg.sender_username === currentUser ? "right" : "left"}}>
                         <strong>{msg.sender_username}:</strong> {msg.message_content}
                     </p>
                 ))}
             </div>
-            <div style={{ marginTop: "10px" }}>
-                <input className="pass"
-                    type="text"
-                    value={newMessage}
-                    onChange={(e) => setNewMessage(e.target.value)}
-                    placeholder="Type your message"
-                    style={{ width: "85%", marginRight: "10px", marginLeft: "25px"}}
+            <div style={{marginTop: "10px"}}>
+                <input
+                       type="text"
+                       value={newMessage}
+                       onChange={(e) => setNewMessage(e.target.value)}
+                       placeholder="Type your message"
+                       style={{ width: "80%", marginRight: "10px" }}
                 />
                 <button onClick={sendMessage}>Send</button>
             </div>
